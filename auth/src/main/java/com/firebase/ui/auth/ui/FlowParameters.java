@@ -86,6 +86,8 @@ public class FlowParameters implements Parcelable {
         dest.writeInt(logoId);
         dest.writeString(termsOfServiceUrl);
         dest.writeInt(smartLockEnabled ? 1 : 0);
+        dest.writeInt(layoutId);
+        dest.writeString(descriptionText);
     }
 
     @Override
