@@ -19,6 +19,7 @@ import android.content.Context;
 import com.firebase.ui.auth.AuthUI;
 import com.firebase.ui.auth.AuthUI.IdpConfig;
 import com.firebase.ui.auth.IdpResponse;
+import com.firebase.ui.auth.R;
 import com.firebase.ui.auth.ui.FlowParameters;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.FirebaseOptions;
@@ -65,7 +66,9 @@ public class TestHelper {
                 AuthUI.getDefaultTheme(),
                 AuthUI.NO_LOGO,
                 null,
-                true);
+                true,
+                R.layout.custom_auth_picker_layout,
+                "whatever");
     }
 
     public static FirebaseUser makeMockFirebaseUser() {
