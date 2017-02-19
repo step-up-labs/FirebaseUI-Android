@@ -1,1 +1,1 @@
-include ':library', ':auth'
+include ':auth'
