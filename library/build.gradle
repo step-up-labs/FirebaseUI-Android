@@ -27,9 +27,7 @@ android {
 }
 
 dependencies {
-    compile project(':database')
     compile project(':auth')
-    compile project(':storage')
 }
 
 /**
