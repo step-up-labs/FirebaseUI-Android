@@ -19,6 +19,7 @@ import android.content.Intent;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.support.annotation.DrawableRes;
+import android.support.annotation.LayoutRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.annotation.StyleRes;
@@ -254,6 +255,18 @@ public class AuthUI {
      * {@link AuthMethodPickerActivity}
      */
     public static final int NO_LOGO = -1;
+
+    /**
+     * Default value for custom layout resource, uses the default layout in the
+     * {@link AuthMethodPickerActivity}
+     */
+    public static final int NO_LAYOUT = -1;
+
+    /**
+     * Default value for additional sign-in description , omits the description from the
+     * {@link AuthMethodPickerActivity}
+     */
+    public static final String NO_DESCRIPTION = "";
 
     /**
      * The set of authentication providers supported in Firebase Auth UI.
@@ -517,6 +530,8 @@ public class AuthUI {
         private LinkedHashSet<IdpConfig> mProviders = new LinkedHashSet<>();
         private String mTosUrl;
         private boolean mIsSmartLockEnabled = true;
+        private int mCustomLayout = NO_LAYOUT;
+        private String mDescriptionText = NO_DESCRIPTION;
 
         private SignInIntentBuilder() {
             mProviders.add(new IdpConfig.Builder(EMAIL_PROVIDER).build());
@@ -612,6 +627,26 @@ public class AuthUI {
             return this;
         }
 
+        /**
+         * Replace default authentication picker layout with custom layout.
+         * <p>
+         * <p> Default layout doesn't support description text.
+         */
+        public SignInIntentBuilder setCustomLayout(@LayoutRes int customLayout) {
+            mCustomLayout = customLayout;
+            return this;
+        }
+
+        /**
+         * Add additional description text between logo and sign-in buttons.
+         * <p>
+         * <p> Description text can't be used with default layout.
+         */
+        public SignInIntentBuilder setDescriptionText(String descriptionText) {
+            mDescriptionText = descriptionText;
+            return this;
+        }
+
         private boolean isIdpAlreadyConfigured(@NonNull String providerId) {
             for (IdpConfig config : mProviders) {
                 if (config.getProviderId().equals(providerId)) {
@@ -632,7 +667,9 @@ public class AuthUI {
                                       mTheme,
                                       mLogo,
                                       mTosUrl,
-                                      mIsSmartLockEnabled);
+                                      mIsSmartLockEnabled,
+                                      mCustomLayout,
+                                      mDescriptionText);
         }
     }
 }
