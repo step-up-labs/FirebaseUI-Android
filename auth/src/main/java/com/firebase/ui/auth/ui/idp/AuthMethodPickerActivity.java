@@ -86,6 +86,15 @@ public class AuthMethodPickerActivity extends AppCompatBase
         } else {
             logo.setImageResource(logoId);
         }
+        if (mActivityHelper.getFlowParams().descriptionText != null) {
+            String descriptionText = mActivityHelper.getFlowParams().descriptionText;
+            if (findViewById(R.id.description) == null) {
+                Log.e(TAG, "Description text is not supported with default layout. You have to use custom layout instead");
+            } else {
+                TextView description = (TextView) findViewById(R.id.description);
+                description.setText(descriptionText);
+            }
+        }
     }
 
     private void populateIdpList(List<IdpConfig> providers) {
