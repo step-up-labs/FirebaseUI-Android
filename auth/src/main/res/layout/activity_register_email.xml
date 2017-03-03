@@ -9,8 +9,8 @@
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:title="TEST"
-        android:background="@color/grayColor"
-        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"/>
+        android:background="@color/blackColor"
+        app:popupTheme="@style/ToolbarStyle"/>
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
