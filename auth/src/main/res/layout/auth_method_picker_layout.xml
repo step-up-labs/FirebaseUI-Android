@@ -22,6 +22,7 @@
     </LinearLayout>
 
     <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/description"
         style="@style/FirebaseUI.Text.Description"
         android:layout_marginLeft="82dp"
         android:layout_marginTop="40dp"
