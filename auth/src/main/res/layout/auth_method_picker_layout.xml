@@ -21,6 +21,13 @@
 
     </LinearLayout>
 
+    <android.support.v7.widget.AppCompatTextView
+        style="@style/FirebaseUI.Text.Description"
+        android:layout_marginLeft="82dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginBottom="30dp"
+        android:layout_marginRight="82dp" />
+
     <LinearLayout
         android:id="@+id/btn_holder"
         android:layout_weight="0"

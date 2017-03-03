@@ -530,7 +530,6 @@ public class AuthUI {
         private LinkedHashSet<IdpConfig> mProviders = new LinkedHashSet<>();
         private String mTosUrl;
         private boolean mIsSmartLockEnabled = true;
-        private int mCustomLayout = NO_LAYOUT;
         private String mDescriptionText = NO_DESCRIPTION;
 
         private SignInIntentBuilder() {
@@ -628,16 +627,6 @@ public class AuthUI {
         }
 
         /**
-         * Replace default authentication picker layout with custom layout.
-         * <p>
-         * <p> Default layout doesn't support description text.
-         */
-        public SignInIntentBuilder setCustomLayout(@LayoutRes int customLayout) {
-            mCustomLayout = customLayout;
-            return this;
-        }
-
-        /**
          * Add additional description text between logo and sign-in buttons.
          * <p>
          * <p> Description text can't be used with default layout.
@@ -668,7 +657,6 @@ public class AuthUI {
                                       mLogo,
                                       mTosUrl,
                                       mIsSmartLockEnabled,
-                                      mCustomLayout,
                                       mDescriptionText);
         }
     }

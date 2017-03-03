@@ -67,7 +67,6 @@ public class TestHelper {
                 AuthUI.NO_LOGO,
                 null,
                 true,
-                R.layout.custom_auth_picker_layout,
                 "whatever");
     }
 

@@ -51,9 +51,6 @@ public class FlowParameters implements Parcelable {
 
     public final boolean smartLockEnabled;
 
-    @LayoutRes
-    public final int layoutId;
-
     @Nullable
     public final String descriptionText;
 
@@ -64,7 +61,6 @@ public class FlowParameters implements Parcelable {
             @DrawableRes int logoId,
             @Nullable String termsOfServiceUrl,
             boolean smartLockEnabled,
-            @LayoutRes int layoutId,
             @Nullable String descriptionText
 
             ) {
@@ -74,7 +70,6 @@ public class FlowParameters implements Parcelable {
         this.logoId = logoId;
         this.termsOfServiceUrl = termsOfServiceUrl;
         this.smartLockEnabled = smartLockEnabled;
-        this.layoutId = layoutId;
         this.descriptionText = descriptionText;
     }
 
@@ -86,7 +81,6 @@ public class FlowParameters implements Parcelable {
         dest.writeInt(logoId);
         dest.writeString(termsOfServiceUrl);
         dest.writeInt(smartLockEnabled ? 1 : 0);
-        dest.writeInt(layoutId);
         dest.writeString(descriptionText);
     }
 
@@ -105,7 +99,6 @@ public class FlowParameters implements Parcelable {
             String termsOfServiceUrl = in.readString();
             int smartLockEnabledInt = in.readInt();
             boolean smartLockEnabled = smartLockEnabledInt != 0;
-            int layoutId = in.readInt();
             String descriptionText = in.readString();
 
             return new FlowParameters(
@@ -115,7 +108,6 @@ public class FlowParameters implements Parcelable {
                     logoId,
                     termsOfServiceUrl,
                     smartLockEnabled,
-                    layoutId,
                     descriptionText);
         }
 
