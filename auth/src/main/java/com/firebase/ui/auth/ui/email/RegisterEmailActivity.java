@@ -60,7 +60,7 @@ public class RegisterEmailActivity extends AppCompatBase implements
         setContentView(R.layout.activity_register_email);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setHomeButtonEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         if (savedInstanceState != null) {
             return;
         }

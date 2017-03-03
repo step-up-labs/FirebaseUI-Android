@@ -206,6 +206,7 @@
     </style>
 
     <style name="FirebaseUI.Button.AccountChooser.EmailButton">
+        <item name="android:gravity">center</item>
         <item name="android:drawableLeft">@drawable/ic_mail_white_24dp</item>
         <item name="android:visibility">gone</item>
         <item name="android:background">@drawable/idp_button_background_email</item>
@@ -214,18 +215,21 @@
 
     <style name="FirebaseUI.Button.AccountChooser.GoogleButton">
         <item name="android:drawableLeft">@drawable/ic_googleg_color_24dp</item>
+        <item name="android:gravity">center</item>
         <item name="android:background">@drawable/idp_button_background_google</item>
         <item name="android:textColor">#ffffff</item>
     </style>
 
     <style name="FirebaseUI.Button.AccountChooser.FacebookButton">
         <item name="android:drawableLeft">@drawable/ic_facebook_white_22dp</item>
+        <item name="android:gravity">center</item>
         <item name="android:background">@drawable/idp_button_background_facebook</item>
         <item name="android:textColor">@color/com_facebook_button_text_color</item>
     </style>
 
     <style name="FirebaseUI.Button.AccountChooser.TwitterButton">
         <item name="android:drawableLeft">@drawable/ic_twitter_bird_white_24dp</item>
+        <item name="android:gravity">center</item>
         <item name="android:background">@drawable/idp_button_background_twitter</item>
         <item name="android:textColor">@color/tw__solid_white</item>
     </style>
