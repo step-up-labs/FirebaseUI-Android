@@ -257,18 +257,6 @@ public class AuthUI {
     public static final int NO_LOGO = -1;
 
     /**
-     * Default value for custom layout resource, uses the default layout in the
-     * {@link AuthMethodPickerActivity}
-     */
-    public static final int NO_LAYOUT = -1;
-
-    /**
-     * Default value for additional sign-in description , omits the description from the
-     * {@link AuthMethodPickerActivity}
-     */
-    public static final String NO_DESCRIPTION = "";
-
-    /**
      * The set of authentication providers supported in Firebase Auth UI.
      */
     public static final Set<String> SUPPORTED_PROVIDERS =
@@ -530,7 +518,6 @@ public class AuthUI {
         private LinkedHashSet<IdpConfig> mProviders = new LinkedHashSet<>();
         private String mTosUrl;
         private boolean mIsSmartLockEnabled = true;
-        private String mDescriptionText = NO_DESCRIPTION;
 
         private SignInIntentBuilder() {
             mProviders.add(new IdpConfig.Builder(EMAIL_PROVIDER).build());

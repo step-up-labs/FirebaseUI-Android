@@ -40,7 +40,6 @@
             style="@style/FirebaseUI.Text.TextInputLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingTop="96dp"
             android:transitionGroup="true"
             android:transitionName="email_field"
             app:errorTextAppearance="@style/FirebaseUI.Text.ErrorText"
@@ -58,7 +57,6 @@
             style="@style/FirebaseUI.Text.TextInputLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingTop="160dp"
             app:errorTextAppearance="@style/FirebaseUI.Text.ErrorText"
             app:hintTextAppearance="@style/FirebaseUI.Text.HintText"
             app:passwordToggleEnabled="true">

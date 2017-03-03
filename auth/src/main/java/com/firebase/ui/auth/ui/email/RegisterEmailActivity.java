@@ -19,6 +19,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.RestrictTo;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 
 import com.firebase.ui.auth.IdpResponse;
@@ -56,8 +57,10 @@ public class RegisterEmailActivity extends AppCompatBase implements
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setHomeButtonEnabled(true);
         setContentView(R.layout.activity_register_email);
-
         if (savedInstanceState != null) {
             return;
         }
