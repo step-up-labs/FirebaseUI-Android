@@ -39,7 +39,7 @@
         <Button
             android:id="@+id/email_provider"
             style="@style/FirebaseUI.Button.AccountChooser.EmailButton"
-            android:text="@string/sign_in_with_email"/>
+            android:text="@string/idp_name_email"/>
 
     </LinearLayout>
 
