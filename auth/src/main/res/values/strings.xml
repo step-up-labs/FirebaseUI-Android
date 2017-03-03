@@ -11,7 +11,6 @@
     <string name="idp_name_google">Google</string>
     <string name="idp_name_facebook">Facebook</string>
     <string name="idp_name_twitter">Twitter</string>
-    <string name="idp_name_email">Email</string>
 
     <!-- Auth method picker -->
     <string name="sign_in_with_google">Sign in with Google</string>
@@ -30,7 +29,7 @@
 
     <!-- Email sign up -->
     <string name="title_register_email">Sign up with email</string>
-    <string name="name_hint">First &amp; last name</string>
+    <string name="name_hint">Name</string>
     <string name="button_text_save">Save</string>
     <string name="progress_dialog_signing_up">Signing up…</string>
     <plurals name="error_weak_password">
@@ -73,4 +72,7 @@
 
     <!-- Custom text -->
     <string name="auth_picker_description">Sign in to allow for backup\nand synchronization\nof your groups.</string>
+    <string name="sign_up">Sign up</string>
+    <string name="email">Email</string>
+
 </resources>

@@ -106,7 +106,7 @@
     </style>
 
     <style name="FirebaseUI.Text.HintText" parent="FirebaseUI.Text.T12">
-        <item name="android:textColor">?android:attr/textColor</item>
+        <item name="android:textColor">@color/grayColor</item>
     </style>
 
     <style name="FirebaseUI.Text.ErrorText" parent="FirebaseUI.Text.T12">
