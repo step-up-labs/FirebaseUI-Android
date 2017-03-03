@@ -73,6 +73,6 @@
     <!-- Custom text -->
     <string name="auth_picker_description">Sign in to allow for backup\nand synchronization\nof your groups.</string>
     <string name="sign_up">Sign up</string>
-    <string name="email">Email</string>
-
+    <string name="idp_name_email">Email</string>
+    
 </resources>
