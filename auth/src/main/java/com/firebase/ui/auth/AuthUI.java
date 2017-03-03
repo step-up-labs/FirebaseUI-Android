@@ -626,16 +626,6 @@ public class AuthUI {
             return this;
         }
 
-        /**
-         * Add additional description text between logo and sign-in buttons.
-         * <p>
-         * <p> Description text can't be used with default layout.
-         */
-        public SignInIntentBuilder setDescriptionText(String descriptionText) {
-            mDescriptionText = descriptionText;
-            return this;
-        }
-
         private boolean isIdpAlreadyConfigured(@NonNull String providerId) {
             for (IdpConfig config : mProviders) {
                 if (config.getProviderId().equals(providerId)) {
@@ -656,8 +646,7 @@ public class AuthUI {
                                       mTheme,
                                       mLogo,
                                       mTosUrl,
-                                      mIsSmartLockEnabled,
-                                      mDescriptionText);
+                                      mIsSmartLockEnabled);
         }
     }
 }
