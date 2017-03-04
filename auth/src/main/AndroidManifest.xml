@@ -34,7 +34,7 @@
         <activity
             android:name=".ui.email.RegisterEmailActivity"
             android:label="@string/sign_in_default"
-            android:windowSoftInputMode="adjustResize"
+            android:windowSoftInputMode="adjustResize|stateVisible"
             android:exported="false"/>
 
         <activity
