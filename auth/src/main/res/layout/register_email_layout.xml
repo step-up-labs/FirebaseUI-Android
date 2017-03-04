@@ -24,6 +24,8 @@
 
             <android.support.design.widget.TextInputLayout
             android:id="@+id/name_layout"
+            android:paddingLeft="32dp"
+            android:paddingRight="32dp"
             style="@style/FirebaseUI.Text.TextInputLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -46,6 +48,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:transitionGroup="true"
+            android:paddingRight="32dp"
+            android:paddingLeft="32dp"
             android:transitionName="email_field"
             app:errorTextAppearance="@style/FirebaseUI.Text.ErrorText"
             app:hintTextAppearance="@style/FirebaseUI.Text.HintText"
@@ -63,6 +67,8 @@
             style="@style/FirebaseUI.Text.TextInputLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:paddingRight="32dp"
+            android:paddingLeft="32dp"
             app:errorTextAppearance="@style/FirebaseUI.Text.ErrorText"
             app:hintTextAppearance="@style/FirebaseUI.Text.HintText"
             app:passwordToggleEnabled="true">
