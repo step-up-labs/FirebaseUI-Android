@@ -245,7 +245,7 @@
     </style>
 
     <style name="FirebaseUI.CustomButton" parent="FirebaseUI.Text">
-        <item name="android:background">@color/gray_3</item>
+        <item name="android:background">@drawable/ripple_background</item>
         <item name="android:fitsSystemWindows">true</item>
         <item name="android:fontFamily">sans-serif-medium</item>
         <item name="android:gravity">center_horizontal</item>

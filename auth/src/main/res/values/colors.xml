@@ -9,7 +9,9 @@
     <color name="errorColor">#DD2C00</color>
     <color name="linkColor">#4285F4</color>
 
+    <color name="transparent">#00FFFFFF</color>
     <color name="black">#000000</color>
+    <color name="gray_2">#d8d8d8</color>
     <color name="gray_3">#bbbbbb</color>
     <color name="gray_4">#888888</color>
     <color name="gray_6">#333333</color>
