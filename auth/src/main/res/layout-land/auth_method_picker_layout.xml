@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/whiteColor"
+    android:clipChildren="false"
+    android:clipToPadding="false"
+    android:gravity="center|bottom"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:weightSum="2">
+
+        <ImageView
+            android:id="@+id/logo"
+            android:layout_width="0dp"
+            style="@style/FirebaseUI.AuthMethodPicker.Logo"
+            android:layout_weight="1.0"
+            android:contentDescription="@string/accessibility_logo" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_weight="1">
+
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/description"
+                style="@style/FirebaseUI.Text.Description"
+                android:layout_marginBottom="30dp"
+                android:layout_marginLeft="82dp"
+                android:layout_marginRight="82dp"
+                android:layout_marginTop="40dp"
+                android:text="@string/auth_picker_description" />
+
+
+            <LinearLayout
+                android:id="@+id/btn_holder"
+                style="@style/FirebaseUI.AuthMethodPicker.ButtonHolder"
+                android:layout_width="match_parent">
+
+                <Button
+                    android:id="@+id/email_provider"
+                    style="@style/FirebaseUI.Button.AccountChooser.EmailButton"
+                    android:text="@string/idp_name_email" />
+
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</RelativeLayout>

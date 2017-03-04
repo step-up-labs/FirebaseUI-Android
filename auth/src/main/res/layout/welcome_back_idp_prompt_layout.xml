@@ -3,21 +3,21 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     style="@style/FirebaseUI.WrapperStyle"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:paddingLeft="0dp"
+    android:paddingRight="0dp"
     android:orientation="vertical">
 
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:paddingLeft="32dp"
+        android:paddingRight="32dp"
         android:text="@string/welcome_back_idp_header"
         style="@style/FirebaseUI.Text.Heading"/>
 
     <TextView
         style="@style/FirebaseUI.Text.BodyText"
         android:id="@+id/welcome_back_idp_prompt"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:paddingLeft="32dp"
+        android:paddingRight="32dp"
         tools:text="Good news! You've already used jane.doe@example.com. Sign in with Google to continue to SuperApp"/>
 
     <TextView
