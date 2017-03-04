@@ -108,16 +108,18 @@ public class RegisterEmailFragment extends FragmentBase implements
         mNameEditText = (EditText) v.findViewById(R.id.name);
         mPasswordEditText = (EditText) v.findViewById(R.id.password);
         mAgreementText = (TextView) v.findViewById(R.id.create_account_text);
+        ((TextInputLayout) v.findViewById(R.id.name_layout)).setHintAnimationEnabled(true);
         mEmailInput = (TextInputLayout) v.findViewById(R.id.email_layout);
+        mEmailInput.setHintAnimationEnabled(true);
         mPasswordInput = (TextInputLayout) v.findViewById(R.id.password_layout);
+        mPasswordInput.setHintAnimationEnabled(true);
 
         mEmailEditText.setOnFocusChangeListener(this);
-        mEmailEditText.addTextChangedListener(textListener);
-
         mNameEditText.setOnFocusChangeListener(this);
-        mNameEditText.addTextChangedListener(textListener);
-
         mPasswordEditText.setOnFocusChangeListener(this);
+        // Handles finish button color change
+        mNameEditText.addTextChangedListener(textListener);
+        mEmailEditText.addTextChangedListener(textListener);
         mPasswordEditText.addTextChangedListener(textListener);
 
         v.findViewById(R.id.button_create).setOnClickListener(this);
