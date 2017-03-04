@@ -44,14 +44,14 @@
                 android:gravity="center"
                 android:id="@+id/btn_holder"
                 style="@style/FirebaseUI.AuthMethodPicker.ButtonHolder"
-                android:weightSum="2"
                 android:layout_weight="1.0">
 
                 <Button
-                    android:layout_weight="1"
-                    android:gravity="center"
+                    android:layout_marginLeft="60dp"
+                    android:layout_marginRight="60dp"
+                    android:layout_gravity="center"
                     android:id="@+id/email_provider"
-                    android:layout_width="0dp"
+                    android:layout_width="match_parent"
                     style="@style/FirebaseUI.Button.AccountChooser.EmailButton"
                     android:text="@string/idp_name_email" />
 
