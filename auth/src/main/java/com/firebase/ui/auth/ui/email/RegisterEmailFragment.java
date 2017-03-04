@@ -140,6 +140,7 @@ public class RegisterEmailFragment extends FragmentBase implements
             return v;
         }
 
+        // If we press enter on soft-keyboard it simulates finish button click
         mPasswordEditText.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
             public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {

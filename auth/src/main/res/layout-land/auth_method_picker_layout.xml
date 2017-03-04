@@ -17,6 +17,7 @@
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="match_parent"
+            android:layout_gravity="center"
             android:layout_weight="1"
             android:orientation="vertical">
 
@@ -24,7 +25,6 @@
                 android:id="@+id/logo"
                 style="@style/FirebaseUI.AuthMethodPicker.Logo"
                 android:layout_width="wrap_content"
-                android:layout_gravity="center"
                 android:contentDescription="@string/accessibility_logo" />
 
             <android.support.v7.widget.AppCompatTextView
@@ -42,6 +42,7 @@
             <LinearLayout
                 android:layout_width="0dp"
                 android:gravity="center"
+                android:layout_gravity="center"
                 android:id="@+id/btn_holder"
                 android:layout_marginLeft="60dp"
                 android:layout_marginRight="60dp"
