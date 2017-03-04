@@ -28,7 +28,7 @@
         style="@style/FirebaseUI.Text.Description"
         android:text="@string/auth_picker_description"
         android:layout_marginLeft="82dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="56dp"
         android:layout_marginBottom="30dp"
         android:layout_marginRight="82dp" />
 
