@@ -20,6 +20,7 @@
 
         <android.support.design.widget.TextInputEditText
             android:id="@+id/email"
+            android:textCursorDrawable="@drawable/edit_text_cursor_custom"
             style="@style/FirebaseUI.EditText.EmailField" />
 
     </android.support.design.widget.TextInputLayout>
