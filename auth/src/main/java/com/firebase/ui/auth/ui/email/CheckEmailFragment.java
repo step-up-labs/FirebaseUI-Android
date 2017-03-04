@@ -3,6 +3,7 @@ package com.firebase.ui.auth.ui.email;
 import android.app.PendingIntent;
 import android.content.Intent;
 import android.content.IntentSender;
+import android.content.res.Configuration;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -109,6 +110,8 @@ public class CheckEmailFragment extends FragmentBase implements View.OnClickList
         mEmailEditText = (EditText) v.findViewById(R.id.email);
         mEmailFieldValidator = new EmailFieldValidator(
                 (TextInputLayout) v.findViewById(R.id.email_layout));
+        checkEmailNotEmpty();
+        mEmailEditText.addTextChangedListener(textListener);
 
         // If we press enter on soft-keyboard it simulates finish button click
         mEmailEditText.setOnEditorActionListener(new TextView.OnEditorActionListener() {
@@ -142,7 +145,6 @@ public class CheckEmailFragment extends FragmentBase implements View.OnClickList
         if (savedInstanceState != null) {
             return;
         }
-        mEmailEditText.addTextChangedListener(textListener);
         // Check for email
         String email = getArguments().getString(ExtraConstants.EXTRA_EMAIL);
         if (!TextUtils.isEmpty(email)) {
