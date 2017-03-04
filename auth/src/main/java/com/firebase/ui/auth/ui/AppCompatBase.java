@@ -16,6 +16,7 @@ package com.firebase.ui.auth.ui;
 
 import android.os.Bundle;
 import android.support.annotation.RestrictTo;
+import android.view.MenuItem;
 
 @SuppressWarnings("Registered")
 @RestrictTo(RestrictTo.Scope.LIBRARY_GROUP)
@@ -27,4 +28,12 @@ public class AppCompatBase extends HelperActivityBase {
         mActivityHelper.configureTheme();
     }
 
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                onBackPressed();
+        }
+        return true;
+    }
 }

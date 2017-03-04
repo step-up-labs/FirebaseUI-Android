@@ -9,7 +9,8 @@
     <LinearLayout
         style="@style/FirebaseUI.WrapperStyle"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
         <!--
             Since the TextInputLayouts change size based on whether or not an error
@@ -38,6 +39,7 @@
         <android.support.design.widget.TextInputLayout
             android:id="@+id/email_layout"
             style="@style/FirebaseUI.Text.TextInputLayout"
+            android:layout_marginTop="16dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:transitionGroup="true"
@@ -57,6 +59,7 @@
             style="@style/FirebaseUI.Text.TextInputLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
             app:errorTextAppearance="@style/FirebaseUI.Text.ErrorText"
             app:hintTextAppearance="@style/FirebaseUI.Text.HintText"
             app:passwordToggleEnabled="true">
