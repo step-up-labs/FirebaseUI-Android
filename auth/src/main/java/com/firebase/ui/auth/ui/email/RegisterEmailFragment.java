@@ -93,10 +93,6 @@ public class RegisterEmailFragment extends FragmentBase implements
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        if (getActivity().getCurrentFocus() != null) {
-            InputMethodManager inputMethodManager = (InputMethodManager) getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
-            inputMethodManager.showSoftInput(getActivity().getCurrentFocus(), 0);
-        }
         if (!mPasswordInput.isHintAnimationEnabled()) {
             mPasswordInput.setHintAnimationEnabled(true);
             ((TextInputLayout) getView().findViewById(R.id.name_layout)).setHintAnimationEnabled(true);
@@ -171,6 +167,10 @@ public class RegisterEmailFragment extends FragmentBase implements
             @Override
             public void run() {
                 v.requestFocus();
+                if (getActivity().getCurrentFocus() != null) {
+                    InputMethodManager inputMethodManager = (InputMethodManager) getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
+                    inputMethodManager.showSoftInput(getActivity().getCurrentFocus(), 0);
+                }
             }
         });
     }

@@ -40,15 +40,16 @@
 
         </LinearLayout>
             <LinearLayout
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:gravity="center"
                 android:id="@+id/btn_holder"
+                android:layout_marginLeft="60dp"
+                android:layout_marginRight="60dp"
                 style="@style/FirebaseUI.AuthMethodPicker.ButtonHolder"
                 android:layout_weight="1.0">
 
                 <Button
-                    android:layout_marginLeft="60dp"
-                    android:layout_marginRight="60dp"
+
                     android:layout_gravity="center"
                     android:id="@+id/email_provider"
                     android:layout_width="match_parent"
