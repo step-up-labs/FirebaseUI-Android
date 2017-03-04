@@ -88,6 +88,16 @@ public class RegisterEmailFragment extends FragmentBase implements
         }
     }
 
+    @Override
+    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        if (!mPasswordInput.isHintAnimationEnabled()) {
+            mPasswordInput.setHintAnimationEnabled(true);
+            ((TextInputLayout) getView().findViewById(R.id.name_layout)).setHintAnimationEnabled(true);
+            mEmailInput.setHintAnimationEnabled(true);
+        }
+    }
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater,
@@ -108,11 +118,9 @@ public class RegisterEmailFragment extends FragmentBase implements
         mNameEditText = (EditText) v.findViewById(R.id.name);
         mPasswordEditText = (EditText) v.findViewById(R.id.password);
         mAgreementText = (TextView) v.findViewById(R.id.create_account_text);
-        ((TextInputLayout) v.findViewById(R.id.name_layout)).setHintAnimationEnabled(true);
         mEmailInput = (TextInputLayout) v.findViewById(R.id.email_layout);
-        mEmailInput.setHintAnimationEnabled(true);
         mPasswordInput = (TextInputLayout) v.findViewById(R.id.password_layout);
-        mPasswordInput.setHintAnimationEnabled(true);
+
 
         mEmailEditText.setOnFocusChangeListener(this);
         mNameEditText.setOnFocusChangeListener(this);
@@ -150,7 +158,6 @@ public class RegisterEmailFragment extends FragmentBase implements
         }
 
         return v;
-
     }
 
     private void safeRequestFocus(final View v) {
