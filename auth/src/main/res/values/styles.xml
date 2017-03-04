@@ -239,9 +239,22 @@
         <item name="android:textColor">@color/gray_3</item>
     </style>
 
-    <style name="ToolbarStyle" parent="@style/ThemeOverlay.AppCompat.ActionBar">
+    <style name="Toolbar" parent="@style/ThemeOverlay.AppCompat.ActionBar">
         <!-- Customize color of navigation drawer icon and back arrow -->
         <item name="colorControlNormal">@color/whiteColor</item>
+    </style>
+
+    <style name="FirebaseUI.CustomButton" parent="FirebaseUI.Text">
+        <item name="android:background">@color/gray_3</item>
+        <item name="android:fitsSystemWindows">true</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:layout_gravity">bottom</item>
+        <item name="android:paddingBottom">14dp</item>
+        <item name="android:paddingTop">14dp</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:textColor">@color/whiteColor</item>
+        <item name="android:textSize">14sp</item>
     </style>
 
 </resources>

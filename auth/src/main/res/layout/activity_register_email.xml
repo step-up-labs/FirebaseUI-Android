@@ -11,7 +11,7 @@
         android:layout_height="?attr/actionBarSize"
         android:title="TEST"
         android:background="@color/gray_6"
-        app:theme="@style/ToolbarStyle"/>
+        app:theme="@style/Toolbar"/>
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"

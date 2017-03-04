@@ -20,11 +20,9 @@
         android:layout_height="wrap_content"
         tools:text="Good news! You've already used jane.doe@example.com. Sign in with Google to continue to SuperApp"/>
 
-    <Button
+    <TextView
         android:id="@+id/welcome_back_idp_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="end"
-        android:text="@string/sign_in_default"/>
+        style="@style/FirebaseUI.CustomButton"
+        android:text="@string/sign_in_default" />
 
 </LinearLayout>
