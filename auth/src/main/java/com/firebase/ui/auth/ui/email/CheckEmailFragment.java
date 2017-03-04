@@ -9,7 +9,10 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.annotation.RestrictTo;
 import android.support.design.widget.TextInputLayout;
+import android.support.v4.content.ContextCompat;
+import android.text.Editable;
 import android.text.TextUtils;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -123,7 +126,7 @@ public class CheckEmailFragment extends FragmentBase implements View.OnClickList
         if (savedInstanceState != null) {
             return;
         }
-
+        mEmailEditText.addTextChangedListener(textListener);
         // Check for email
         String email = getArguments().getString(ExtraConstants.EXTRA_EMAIL);
         if (!TextUtils.isEmpty(email)) {
@@ -228,6 +231,16 @@ public class CheckEmailFragment extends FragmentBase implements View.OnClickList
         }
     }
 
+    private void checkEmailNotEmpty() {
+        if (getView() != null && mEmailEditText != null) {
+            if (!mEmailEditText.getText().toString().isEmpty()) {
+                getView().findViewById(R.id.button_next).setBackgroundColor(ContextCompat.getColor(getContext(), R.color.sign_up_disabled));
+            } else {
+                getView().findViewById(R.id.button_next).setBackgroundColor(ContextCompat.getColor(getContext(), R.color.authui_colorAccent));
+            }
+        }
+    }
+
     private PendingIntent getEmailHintIntent() {
         GoogleApiClient client = new GoogleApiClient.Builder(getContext())
                 .addApi(Auth.CREDENTIALS_API)
@@ -259,4 +272,21 @@ public class CheckEmailFragment extends FragmentBase implements View.OnClickList
             validateAndProceed();
         }
     }
+
+    TextWatcher textListener = new TextWatcher() {
+        @Override
+        public void afterTextChanged(Editable s) {
+        }
+
+        @Override
+        public void beforeTextChanged(CharSequence s, int start,
+                                      int count, int after) {
+        }
+
+        @Override
+        public void onTextChanged(CharSequence s, int start,
+                                  int before, int count) {
+            checkEmailNotEmpty(); // Change NEXT button color if needed.
+        }
+    };
 }

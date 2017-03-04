@@ -3,6 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     style="@style/FirebaseUI.WrapperStyle"
+    android:paddingRight="0dp"
+    android:paddingLeft="0dp"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
@@ -12,6 +14,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingTop="16dp"
+        android:paddingRight="32dp"
+        android:paddingLeft="32dp"
         android:transitionGroup="true"
         android:transitionName="email_field"
         app:errorTextAppearance="@style/FirebaseUI.Text.ErrorText"
@@ -27,7 +31,8 @@
 
     <TextView
         android:id="@+id/button_next"
-        style="@style/FirebaseUI.CustomButton"
+        style="@style/FirebaseUI.Button"
+        android:layout_below="@id/email_layout"
         android:text="@string/next_default" />
 
 </RelativeLayout>
