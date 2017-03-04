@@ -233,7 +233,7 @@ public class CheckEmailFragment extends FragmentBase implements View.OnClickList
 
     private void checkEmailNotEmpty() {
         if (getView() != null && mEmailEditText != null) {
-            if (!mEmailEditText.getText().toString().isEmpty()) {
+            if (mEmailEditText.getText().toString().isEmpty()) {
                 getView().findViewById(R.id.button_next).setBackgroundColor(ContextCompat.getColor(getContext(), R.color.sign_up_disabled));
             } else {
                 getView().findViewById(R.id.button_next).setBackgroundColor(ContextCompat.getColor(getContext(), R.color.authui_colorAccent));

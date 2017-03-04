@@ -31,7 +31,7 @@
 
     <TextView
         android:id="@+id/button_next"
-        style="@style/FirebaseUI.Button"
+        style="@style/FirebaseUI.CustomButton"
         android:layout_below="@id/email_layout"
         android:text="@string/next_default" />
 
