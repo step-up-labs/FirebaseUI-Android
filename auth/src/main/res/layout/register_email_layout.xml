@@ -81,6 +81,7 @@
                     style="@style/FirebaseUI.EditText.PasswordField"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:imeOptions="actionDone"
                     android:textCursorDrawable="@drawable/edit_text_cursor_custom" />
 
             </android.support.design.widget.TextInputLayout>

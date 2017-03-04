@@ -16,9 +16,11 @@ import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.text.style.ForegroundColorSpan;
 import android.util.TypedValue;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -137,6 +139,18 @@ public class RegisterEmailFragment extends FragmentBase implements
         if (savedInstanceState != null) {
             return v;
         }
+
+        mPasswordEditText.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            @Override
+            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+                if (actionId == EditorInfo.IME_ACTION_DONE && getView() != null) {
+                    onClick(getView().findViewById(R.id.button_create));
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+        });
 
         // If email is passed in, fill in the field and move down to the name field.
         String email = mUser.getEmail();
