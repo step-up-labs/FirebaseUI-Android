@@ -244,11 +244,13 @@ public class RegisterEmailFragment extends FragmentBase implements
     }
 
     private void checkAllFieldsFilled() {
-        TextView buttonSignUp = (TextView) getView().findViewById(R.id.button_create);
-        if (buttonSignUp != null && !mEmailEditText.getText().toString().isEmpty() && !mPasswordEditText.getText().toString().isEmpty() && !mNameEditText.getText().toString().isEmpty()) {
-            buttonSignUp.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.authui_colorAccent));
-        } else {
-            buttonSignUp.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.sign_up_disabled));
+        if (getView() != null) {
+            TextView buttonSignUp = (TextView) getView().findViewById(R.id.button_create);
+            if (buttonSignUp != null && !mEmailEditText.getText().toString().isEmpty() && !mPasswordEditText.getText().toString().isEmpty() && !mNameEditText.getText().toString().isEmpty()) {
+                buttonSignUp.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.authui_colorAccent));
+            } else if (buttonSignUp != null) {
+                buttonSignUp.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.sign_up_disabled));
+            }
         }
     }
 
