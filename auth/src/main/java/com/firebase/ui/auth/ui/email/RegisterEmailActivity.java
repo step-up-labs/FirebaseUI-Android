@@ -58,9 +58,7 @@ public class RegisterEmailActivity extends AppCompatBase implements
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register_email);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        setToolbar();
         if (savedInstanceState != null) {
             return;
         }
@@ -138,4 +136,11 @@ public class RegisterEmailActivity extends AppCompatBase implements
         // Make the next activity slide in
         overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
     }
+
+    private void setToolbar() {
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+    }
+
 }
