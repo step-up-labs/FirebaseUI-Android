@@ -24,7 +24,7 @@
         <item name="android:backgroundDimEnabled">false</item>
     </style>
 
-    <style name="FirebaseUI.Dialog" parent="Base.Theme.AppCompat.Light.Dialog"/>
+    <style name="FirebaseUI.Dialog" parent="Base.Theme.AppCompat.Light.Dialog" />
 
     <style name="FirebaseUI.WrapperStyle">
         <item name="android:layout_height">match_parent</item>
@@ -174,7 +174,7 @@
     </style>
 
     <!-- Authentication method picker styles -->
-    <style name="FirebaseUI.AuthMethodPicker"/>
+    <style name="FirebaseUI.AuthMethodPicker" />
 
     <style name="FirebaseUI.AuthMethodPicker.Logo">
         <item name="android:layout_width">wrap_content</item>

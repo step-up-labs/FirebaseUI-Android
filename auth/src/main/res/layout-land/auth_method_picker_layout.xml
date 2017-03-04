@@ -16,9 +16,9 @@
 
         <LinearLayout
             android:layout_width="0dp"
-            android:layout_marginTop="64dp"
             android:layout_height="match_parent"
             android:layout_gravity="center"
+            android:layout_marginTop="64dp"
             android:layout_weight="1"
             android:orientation="vertical">
 
@@ -30,34 +30,35 @@
 
             <android.support.v7.widget.AppCompatTextView
                 android:id="@+id/description"
-                android:gravity="center_horizontal"
-                android:layout_gravity="bottom"
                 style="@style/FirebaseUI.Text.Description"
+                android:layout_gravity="bottom"
                 android:layout_marginBottom="30dp"
                 android:layout_marginLeft="42dp"
                 android:layout_marginRight="42dp"
                 android:layout_marginTop="40dp"
+                android:gravity="center_horizontal"
                 android:text="@string/auth_picker_description" />
 
         </LinearLayout>
-            <LinearLayout
-                android:layout_width="0dp"
-                android:gravity="center"
-                android:layout_marginTop="32dp"
-                android:id="@+id/btn_holder"
-                android:layout_marginLeft="60dp"
-                android:layout_marginRight="60dp"
-                android:layout_height="match_parent"
-                style="@style/FirebaseUI.AuthMethodPicker.ButtonHolder"
-                android:layout_weight="1.0">
 
-                <Button
-                    android:layout_gravity="center"
-                    android:id="@+id/email_provider"
-                    android:layout_width="match_parent"
-                    style="@style/FirebaseUI.Button.AccountChooser.EmailButton"
-                    android:text="@string/idp_name_email" />
+        <LinearLayout
+            android:id="@+id/btn_holder"
+            style="@style/FirebaseUI.AuthMethodPicker.ButtonHolder"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="60dp"
+            android:layout_marginRight="60dp"
+            android:layout_marginTop="32dp"
+            android:layout_weight="1.0"
+            android:gravity="center">
 
-            </LinearLayout>
+            <Button
+                android:id="@+id/email_provider"
+                style="@style/FirebaseUI.Button.AccountChooser.EmailButton"
+                android:layout_width="match_parent"
+                android:layout_gravity="center"
+                android:text="@string/idp_name_email" />
+
         </LinearLayout>
+    </LinearLayout>
 </RelativeLayout>

@@ -1,5 +1,4 @@
-<Button
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<Button xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/facebook_button"
     style="@style/FirebaseUI.Button.AccountChooser.FacebookButton"
-    android:text="@string/idp_name_facebook"
-    android:id="@+id/facebook_button"/>
+    android:text="@string/idp_name_facebook" />

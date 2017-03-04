@@ -1,32 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     style="@style/FirebaseUI.WrapperStyle"
+    android:orientation="vertical"
     android:paddingLeft="0dp"
-    android:paddingRight="0dp"
-    android:orientation="vertical">
+    android:paddingRight="0dp">
 
     <TextView
+        style="@style/FirebaseUI.Text.Heading"
         android:paddingLeft="32dp"
         android:paddingRight="32dp"
-        android:text="@string/welcome_back_idp_header"
-        style="@style/FirebaseUI.Text.Heading"/>
+        android:text="@string/welcome_back_idp_header" />
 
     <TextView
-        style="@style/FirebaseUI.Text.BodyText"
         android:id="@+id/welcome_back_idp_prompt"
+        style="@style/FirebaseUI.Text.BodyText"
         android:layout_marginTop="48dp"
         android:paddingLeft="32dp"
         android:paddingRight="32dp"
-        tools:text="Good news! You've already used jane.doe@example.com. Sign in with Google to continue to SuperApp"/>
+        tools:text="Good news! You've already used jane.doe@example.com. Sign in with Google to continue to SuperApp" />
 
     <TextView
         android:id="@+id/welcome_back_idp_button"
         style="@style/FirebaseUI.CustomButton"
+        android:layout_alignParentBottom="true"
         android:layout_gravity="bottom"
         android:background="@color/authui_colorAccent"
-        android:layout_alignParentBottom="true"
         android:text="@string/sign_in_default" />
 
 </RelativeLayout>
