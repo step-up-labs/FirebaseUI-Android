@@ -101,6 +101,7 @@
 
     <!-- Common styles -->
     <style name="FirebaseUI.Text.TextInputLayout">
+        <item name="android:textCursorDrawable">@drawable/edit_text_cursor_custom</item>
         <item name="android:paddingTop">8dp</item>
         <item name="android:textColorHint">?android:attr/textColor</item>
     </style>
@@ -139,15 +140,16 @@
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:fontFamily">sans-serif</item>
-        <item name="android:textCursorDrawable">@drawable/edit_text_cursor_custom</item>
     </style>
 
     <style name="FirebaseUI.EditText.EmailField">
+        <item name="android:textCursorDrawable">@drawable/edit_text_cursor_custom</item>
         <item name="android:hint">@string/email_hint</item>
         <item name="android:inputType">textEmailAddress</item>
     </style>
 
     <style name="FirebaseUI.EditText.PasswordField">
+        <item name="android:textCursorDrawable">@drawable/edit_text_cursor_custom</item>
         <item name="android:hint">@string/password_hint</item>
         <item name="android:inputType">textPassword</item>
     </style>

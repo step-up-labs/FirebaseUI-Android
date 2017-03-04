@@ -39,7 +39,6 @@
         <android.support.design.widget.TextInputLayout
             android:id="@+id/email_layout"
             style="@style/FirebaseUI.Text.TextInputLayout"
-            android:layout_marginTop="16dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:transitionGroup="true"
@@ -59,7 +58,6 @@
             style="@style/FirebaseUI.Text.TextInputLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
             app:errorTextAppearance="@style/FirebaseUI.Text.ErrorText"
             app:hintTextAppearance="@style/FirebaseUI.Text.HintText"
             app:passwordToggleEnabled="true">
@@ -76,7 +74,6 @@
             android:id="@+id/create_account_text"
             android:layout_height="wrap_content"
             android:layout_width="match_parent"
-            android:layout_marginTop="336dp"
             style="@style/FirebaseUI.Text.BodyText"/>
 
         <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
