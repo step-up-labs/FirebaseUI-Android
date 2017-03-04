@@ -9,8 +9,10 @@ import android.support.annotation.RestrictTo;
 import android.support.customtabs.CustomTabsIntent;
 import android.support.design.widget.TextInputLayout;
 import android.support.v4.content.ContextCompat;
+import android.text.Editable;
 import android.text.SpannableStringBuilder;
 import android.text.TextUtils;
+import android.text.TextWatcher;
 import android.text.style.ForegroundColorSpan;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
@@ -110,8 +112,14 @@ public class RegisterEmailFragment extends FragmentBase implements
         mPasswordInput = (TextInputLayout) v.findViewById(R.id.password_layout);
 
         mEmailEditText.setOnFocusChangeListener(this);
+        mEmailEditText.addTextChangedListener(textListener);
+
         mNameEditText.setOnFocusChangeListener(this);
+        mNameEditText.addTextChangedListener(textListener);
+
         mPasswordEditText.setOnFocusChangeListener(this);
+        mPasswordEditText.addTextChangedListener(textListener);
+
         v.findViewById(R.id.button_create).setOnClickListener(this);
 
         if (savedInstanceState != null) {
@@ -235,6 +243,15 @@ public class RegisterEmailFragment extends FragmentBase implements
         }
     }
 
+    private void checkAllFieldsFilled() {
+        TextView buttonSignUp = (TextView) getView().findViewById(R.id.button_create);
+        if (buttonSignUp != null && !mEmailEditText.getText().toString().isEmpty() && !mPasswordEditText.getText().toString().isEmpty() && !mNameEditText.getText().toString().isEmpty()) {
+            buttonSignUp.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.authui_colorAccent));
+        } else {
+            buttonSignUp.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.sign_up_disabled));
+        }
+    }
+
     private void registerUser(final String email, final String name, final String password) {
         mHelper.getFirebaseAuth()
                 .createUserWithEmailAndPassword(email, password)
@@ -294,4 +311,22 @@ public class RegisterEmailFragment extends FragmentBase implements
                     }
                 });
     }
+
+    TextWatcher textListener = new TextWatcher() {
+        @Override
+        public void afterTextChanged(Editable s) {
+        }
+
+        @Override
+        public void beforeTextChanged(CharSequence s, int start,
+                                      int count, int after) {
+        }
+
+        @Override
+        public void onTextChanged(CharSequence s, int start,
+                                  int before, int count) {
+            checkAllFieldsFilled(); // Change SIGN UP button color if needed.
+        }
+    };
+
 }

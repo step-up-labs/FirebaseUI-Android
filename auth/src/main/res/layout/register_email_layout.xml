@@ -8,7 +8,8 @@
 
     <LinearLayout
         style="@style/FirebaseUI.WrapperStyle"
-        android:layout_width="match_parent"
+        android:paddingLeft="0dp"
+        android:paddingRight="0dp"
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
@@ -22,7 +23,6 @@
             style="@style/FirebaseUI.Text.TextInputLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingTop="16dp"
             app:errorTextAppearance="@style/FirebaseUI.Text.ErrorText"
             app:hintTextAppearance="@style/FirebaseUI.Text.HintText">
 
@@ -77,21 +77,21 @@
             android:layout_height="wrap_content"
             android:layout_width="match_parent"
             style="@style/FirebaseUI.Text.BodyText"/>
-
-        <TextView
-            android:id="@+id/button_create"
-            style="@style/FirebaseUI.Text"
-            android:gravity="center_horizontal"
-            android:layout_gravity="bottom"
-            android:fitsSystemWindows="true"
-            android:background="@color/grayColor"
-            android:textSize="14sp"
-            android:textColor="@color/whiteColor"
-            android:fontFamily="sans-serif-medium"
-            android:paddingTop="14dp"
-            android:paddingBottom="14dp"
-            android:text="@string/sign_up" />
-
     </LinearLayout>
+
+    <TextView
+        android:id="@+id/button_create"
+        style="@style/FirebaseUI.Text"
+        android:layout_gravity="bottom"
+        android:background="@color/gray_3"
+        android:fitsSystemWindows="true"
+        android:fontFamily="sans-serif-medium"
+        android:gravity="center_horizontal"
+        android:paddingBottom="14dp"
+        android:paddingTop="14dp"
+        android:text="@string/sign_up"
+        android:textAllCaps="true"
+        android:textColor="@color/whiteColor"
+        android:textSize="14sp" />
 
 </ScrollView>

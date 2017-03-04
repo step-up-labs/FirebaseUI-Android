@@ -10,7 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:title="TEST"
-        android:background="@color/blackColor"
+        android:background="@color/gray_6"
         app:theme="@style/ToolbarStyle"/>
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
