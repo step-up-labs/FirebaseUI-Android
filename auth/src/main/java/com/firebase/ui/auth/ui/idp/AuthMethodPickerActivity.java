@@ -85,7 +85,7 @@ public class AuthMethodPickerActivity extends AppCompatBase
         if (logoId == AuthUI.NO_LOGO) {
             findViewById(R.id.logo_layout).setVisibility(View.GONE);
         } else {
-            ImageView logo = (ImageView) findViewById(R.id.logo);
+            ImageView logo = (ImageView) findViewById(R.id.logo_layout);
             logo.setImageResource(logoId);
         }
     }

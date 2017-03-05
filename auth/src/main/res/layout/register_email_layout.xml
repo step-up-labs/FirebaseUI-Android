@@ -90,6 +90,8 @@
                 android:id="@+id/create_account_text"
                 style="@style/FirebaseUI.Text.BodyText"
                 android:layout_width="match_parent"
+                android:paddingLeft="32dp"
+                android:paddingRight="32dp"
                 android:layout_height="wrap_content" />
         </LinearLayout>
 
