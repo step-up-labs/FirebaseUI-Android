@@ -10,6 +10,7 @@
 
     <RelativeLayout
         android:layout_width="0dp"
+        android:layout_gravity="center_vertical"
         android:layout_height="match_parent"
         android:layout_weight="1">
 
@@ -31,6 +32,7 @@
     <RelativeLayout
         android:layout_width="0dp"
         android:layout_height="match_parent"
+        android:layout_gravity="center"
         android:layout_weight="1">
 
         <LinearLayout
@@ -40,9 +42,7 @@
             android:layout_height="match_parent"
             android:layout_centerInParent="true"
             android:layout_marginLeft="56dp"
-            android:layout_marginRight="56dp"
-            android:layout_weight="1.0"
-            android:gravity="center">
+            android:layout_marginRight="56dp">
 
             <Button
                 android:id="@+id/email_provider"
