@@ -134,7 +134,9 @@ public class RegisterEmailFragment extends FragmentBase implements
         mEmailEditText.addTextChangedListener(textListener);
         mPasswordEditText.addTextChangedListener(textListener);
 
-        v.findViewById(R.id.button_create).setOnClickListener(this);
+        TextView buttonCreate = (TextView) v.findViewById(R.id.button_create);
+        buttonCreate.setOnClickListener(this);
+        buttonCreate.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.sign_up_disabled));
 
         if (savedInstanceState != null) {
             return v;
