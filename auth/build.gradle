@@ -1,5 +1,6 @@
 apply plugin: 'com.android.library'
 apply plugin: 'io.fabric'
+apply from: '../library/quality/quality.gradle'
 
 android {
     compileSdkVersion compileSdk
