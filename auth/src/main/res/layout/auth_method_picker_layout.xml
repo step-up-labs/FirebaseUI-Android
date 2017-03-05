@@ -12,7 +12,7 @@
     tools:context=".ui.idp.AuthMethodPickerActivity">
 
     <ImageView
-        android:id="@+id/logo"
+        android:id="@+id/logo_layout"
         android:layout_weight="1.0"
         android:paddingTop="32dp"
         android:paddingBottom="32dp"
@@ -32,6 +32,7 @@
         android:id="@+id/btn_holder"
         style="@style/FirebaseUI.AuthMethodPicker.ButtonHolder"
         android:layout_gravity="center"
+        android:layout_height="wrap_content"
         android:padding="0dp"
         android:layout_weight="2">
 

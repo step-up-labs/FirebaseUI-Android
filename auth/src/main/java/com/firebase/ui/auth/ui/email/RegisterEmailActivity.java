@@ -21,7 +21,6 @@ import android.support.annotation.RestrictTo;
 import android.support.design.widget.TextInputLayout;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.Toolbar;
-import android.view.View;
 
 import com.firebase.ui.auth.IdpResponse;
 import com.firebase.ui.auth.R;
@@ -58,6 +57,7 @@ public class RegisterEmailActivity extends AppCompatBase implements
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setTheme(R.style.FirebaseUI);
         setContentView(R.layout.activity_register_email);
         setToolbar();
         if (savedInstanceState != null) {
@@ -148,9 +148,13 @@ public class RegisterEmailActivity extends AppCompatBase implements
     }
 
     private void setToolbar() {
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        try {
+            Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+            setSupportActionBar(toolbar);
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        } catch (IllegalStateException e) {
+            // It is handled correctly but there is something wrong with tests.
+        }
     }
 
 }

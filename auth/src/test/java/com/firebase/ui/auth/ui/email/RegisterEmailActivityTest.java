@@ -141,7 +141,7 @@ public class RegisterEmailActivityTest {
                         true,
                         null));
 
-        Button button = (Button) registerEmailActivity.findViewById(R.id.button_create);
+        TextView button = (TextView) registerEmailActivity.findViewById(R.id.button_create);
         button.performClick();
 
         TestHelper.verifySmartLockSave(
