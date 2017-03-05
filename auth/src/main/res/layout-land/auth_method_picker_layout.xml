@@ -17,14 +17,14 @@
             android:id="@+id/logo"
             style="@style/FirebaseUI.AuthMethodPicker.Logo"
             android:layout_width="wrap_content"
-            android:paddingBottom="64dp"
+            android:paddingBottom="80dp"
             android:layout_centerInParent="true"
             android:contentDescription="@string/accessibility_logo" />
 
         <android.support.v7.widget.AppCompatTextView
             android:id="@+id/description"
             style="@style/FirebaseUI.Text.Description"
-            android:layout_marginTop="-32dp"
+            android:layout_marginTop="-56dp"
             android:layout_below="@id/logo"
             android:text="@string/auth_picker_description" />
     </RelativeLayout>
@@ -43,6 +43,7 @@
             android:layout_marginLeft="56dp"
             android:layout_marginRight="56dp"
             android:paddingTop="64dp"
+            android:paddingBottom="0dp"
             android:layout_weight="1.0"
             android:gravity="center">
 
