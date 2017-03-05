@@ -19,6 +19,7 @@ import android.os.Bundle;
 import android.support.design.widget.TextInputLayout;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import com.firebase.ui.auth.AuthUI;
 import com.firebase.ui.auth.BuildConfig;
@@ -79,7 +80,7 @@ public class RegisterEmailActivityTest {
         // Trigger RegisterEmailFragment (bypass check email)
         registerEmailActivity.onNewUser(new User.Builder(TestConstants.EMAIL).build());
 
-        Button button = (Button) registerEmailActivity.findViewById(R.id.button_create);
+        TextView button = (TextView) registerEmailActivity.findViewById(R.id.button_create);
         button.performClick();
 
         TextInputLayout nameLayout = (TextInputLayout)
