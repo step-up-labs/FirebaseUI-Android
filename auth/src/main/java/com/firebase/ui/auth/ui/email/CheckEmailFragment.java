@@ -3,18 +3,25 @@ package com.firebase.ui.auth.ui.email;
 import android.app.PendingIntent;
 import android.content.Intent;
 import android.content.IntentSender;
+import android.content.res.Configuration;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.annotation.RestrictTo;
 import android.support.design.widget.TextInputLayout;
+import android.support.v4.content.ContextCompat;
+import android.text.Editable;
 import android.text.TextUtils;
+import android.text.TextWatcher;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.EditorInfo;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import com.firebase.ui.auth.R;
 import com.firebase.ui.auth.ui.ExtraConstants;
@@ -106,6 +113,21 @@ public class CheckEmailFragment extends FragmentBase implements View.OnClickList
         mEmailFieldValidator = new EmailFieldValidator(mEmailLayout);
         mEmailLayout.setOnClickListener(this);
         mEmailEditText.setOnClickListener(this);
+        checkEmailNotEmpty();
+        mEmailEditText.addTextChangedListener(textListener);
+
+        // If we press enter on soft-keyboard it simulates finish button click
+        mEmailEditText.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            @Override
+            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+                if (actionId == EditorInfo.IME_ACTION_DONE && getView() != null) {
+                    onClick(getView().findViewById(R.id.button_next));
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+        });
 
         // "Next" button
         v.findViewById(R.id.button_next).setOnClickListener(this);
@@ -126,7 +148,6 @@ public class CheckEmailFragment extends FragmentBase implements View.OnClickList
         if (savedInstanceState != null) {
             return;
         }
-
         // Check for email
         String email = getArguments().getString(ExtraConstants.EXTRA_EMAIL);
         if (!TextUtils.isEmpty(email)) {
@@ -231,6 +252,16 @@ public class CheckEmailFragment extends FragmentBase implements View.OnClickList
         }
     }
 
+    private void checkEmailNotEmpty() {
+        if (getView() != null && mEmailEditText != null) {
+            if (mEmailEditText.getText().toString().isEmpty()) {
+                getView().findViewById(R.id.button_next).setBackgroundColor(ContextCompat.getColor(getContext(), R.color.sign_up_disabled));
+            } else {
+                getView().findViewById(R.id.button_next).setBackgroundColor(ContextCompat.getColor(getContext(), R.color.authui_colorAccent));
+            }
+        }
+    }
+
     private PendingIntent getEmailHintIntent() {
         GoogleApiClient client = new GoogleApiClient.Builder(getContext())
                 .addApi(Auth.CREDENTIALS_API)
@@ -264,4 +295,21 @@ public class CheckEmailFragment extends FragmentBase implements View.OnClickList
             mEmailLayout.setError(null);
         }
     }
+
+    TextWatcher textListener = new TextWatcher() {
+        @Override
+        public void afterTextChanged(Editable s) {
+        }
+
+        @Override
+        public void beforeTextChanged(CharSequence s, int start,
+                                      int count, int after) {
+        }
+
+        @Override
+        public void onTextChanged(CharSequence s, int start,
+                                  int before, int count) {
+            checkEmailNotEmpty(); // Change NEXT button color if needed.
+        }
+    };
 }

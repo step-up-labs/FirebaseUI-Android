@@ -20,6 +20,7 @@ import android.os.Bundle;
 import android.support.annotation.RestrictTo;
 import android.support.design.widget.TextInputLayout;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 
 import com.firebase.ui.auth.IdpResponse;
@@ -58,7 +59,7 @@ public class RegisterEmailActivity extends AppCompatBase implements
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register_email);
-
+        setToolbar();
         if (savedInstanceState != null) {
             return;
         }
@@ -145,4 +146,11 @@ public class RegisterEmailActivity extends AppCompatBase implements
         // Make the next activity slide in
         overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
     }
+
+    private void setToolbar() {
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+    }
+
 }

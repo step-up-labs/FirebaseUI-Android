@@ -16,9 +16,11 @@ package com.firebase.ui.auth.ui;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.support.annotation.DrawableRes;
+import android.support.annotation.LayoutRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.annotation.RestrictTo;
+import android.support.annotation.StringRes;
 import android.support.annotation.StyleRes;
 
 import com.firebase.ui.auth.AuthUI.IdpConfig;

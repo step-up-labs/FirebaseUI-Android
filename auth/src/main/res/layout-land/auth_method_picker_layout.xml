@@ -1,42 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:baselineAligned="false"
-    android:clipChildren="false"
     android:clipToPadding="false"
-    android:gravity="center|bottom"
-    android:orientation="horizontal">
+    android:background="@color/whiteColor"
+    android:clipChildren="false"
+    android:orientation="horizontal"
+    android:weightSum="2">
 
-    <include
-        layout="@layout/include_auth_method_picker_logo"
+    <RelativeLayout
         android:layout_width="0dp"
         android:layout_height="match_parent"
-        android:layout_weight="1.0" />
+        android:layout_weight="1">
 
-    <FrameLayout
+        <ImageView
+            android:id="@+id/logo"
+            style="@style/FirebaseUI.AuthMethodPicker.Logo"
+            android:layout_width="wrap_content"
+            android:paddingBottom="84dp"
+            android:layout_centerInParent="true"
+            android:contentDescription="@string/accessibility_logo" />
+
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/description"
+            style="@style/FirebaseUI.Text.Description"
+            android:layout_marginTop="-60dp"
+            android:layout_below="@id/logo"
+            android:text="@string/auth_picker_description" />
+    </RelativeLayout>
+
+    <RelativeLayout
         android:layout_width="0dp"
         android:layout_height="match_parent"
-        android:layout_weight="1.0">
-
+        android:layout_weight="1">
 
         <LinearLayout
             android:id="@+id/btn_holder"
             style="@style/FirebaseUI.AuthMethodPicker.ButtonHolder"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:paddingTop="@dimen/auth_method_button_marginBottom">
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true"
+            android:layout_marginLeft="56dp"
+            android:layout_marginRight="56dp"
+            android:padding="0dp"
+            android:layout_weight="1.0"
+            android:gravity="center">
 
             <Button
                 android:id="@+id/email_provider"
                 style="@style/FirebaseUI.Button.AccountChooser.EmailButton"
-                android:text="@string/sign_in_with_email"
-                android:visibility="gone"
-                tools:visibility="visible" />
+                android:layout_marginBottom="0dp"
+                android:layout_width="match_parent"
+                android:layout_gravity="center"
+                android:text="@string/idp_name_email" />
 
         </LinearLayout>
-
-    </FrameLayout>
-
+    </RelativeLayout>
 </LinearLayout>

@@ -22,6 +22,8 @@ import android.support.annotation.RestrictTo;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.ImageView;
 
 import com.firebase.ui.auth.AuthUI;
@@ -118,14 +120,17 @@ public class AuthMethodPickerActivity extends AppCompatBase
                 case GoogleAuthProvider.PROVIDER_ID:
                     loginButton = getLayoutInflater()
                             .inflate(R.layout.idp_button_google, btnHolder, false);
+                    btnHolder.invalidate();
                     break;
                 case FacebookAuthProvider.PROVIDER_ID:
                     loginButton = getLayoutInflater()
                             .inflate(R.layout.idp_button_facebook, btnHolder, false);
+                    btnHolder.invalidate();
                     break;
                 case TwitterAuthProvider.PROVIDER_ID:
                     loginButton = getLayoutInflater()
                             .inflate(R.layout.idp_button_twitter, btnHolder, false);
+                    btnHolder.invalidate();
                     break;
                 default:
                     Log.e(TAG, "No button for provider " + provider.getProviderId());
