@@ -14,6 +14,8 @@
     <ImageView
         android:id="@+id/logo"
         android:layout_weight="1.0"
+        android:paddingTop="32dp"
+        android:paddingBottom="32dp"
         style="@style/FirebaseUI.AuthMethodPicker.Logo"
         android:contentDescription="@string/accessibility_logo" />
 
@@ -22,6 +24,7 @@
         style="@style/FirebaseUI.Text.Description"
         android:layout_marginLeft="42dp"
         android:layout_marginRight="42dp"
+        android:paddingBottom="16dp"
         android:layout_weight="1"
         android:text="@string/auth_picker_description" />
 
