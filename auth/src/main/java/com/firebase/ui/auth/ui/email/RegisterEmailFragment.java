@@ -173,6 +173,7 @@ public class RegisterEmailFragment extends FragmentBase implements
             @Override
             public void run() {
                 v.requestFocus();
+                // Sometimes it doesn't receive focus.
                 if (getActivity().getCurrentFocus() != null) {
                     InputMethodManager inputMethodManager = (InputMethodManager) getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
                     inputMethodManager.showSoftInput(getActivity().getCurrentFocus(), 0);

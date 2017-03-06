@@ -15,7 +15,7 @@
     <color name="gray_3">#bbbbbb</color>
     <color name="gray_4">#888888</color>
     <color name="gray_6">#333333</color>
-    <color name="whiteColor">#ffffff</color>
+    <color name="white">#ffffff</color>
     <color name="sign_up_disabled">#cccccc</color>
 
 </resources>
