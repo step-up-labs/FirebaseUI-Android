@@ -60,7 +60,7 @@
                 <android.support.design.widget.TextInputEditText
                     android:id="@+id/email"
                     style="@style/FirebaseUI.EditText.EmailField"
-                    android:textCursorDrawable="@drawable/edit_text_cursor_custom" />
+                    android:textCursorDrawable="@drawable/edit_text_cursor_settleup" />
 
             </android.support.design.widget.TextInputLayout>
 
@@ -82,7 +82,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:imeOptions="actionDone"
-                    android:textCursorDrawable="@drawable/edit_text_cursor_custom" />
+                    android:textCursorDrawable="@drawable/edit_text_cursor_settleup" />
 
             </android.support.design.widget.TextInputLayout>
 

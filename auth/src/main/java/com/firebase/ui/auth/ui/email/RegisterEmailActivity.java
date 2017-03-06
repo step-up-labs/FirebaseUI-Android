@@ -57,9 +57,8 @@ public class RegisterEmailActivity extends AppCompatBase implements
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setTheme(R.style.FirebaseUI);
         setContentView(R.layout.activity_register_email);
-        setToolbar();
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         if (savedInstanceState != null) {
             return;
         }
@@ -145,16 +144,6 @@ public class RegisterEmailActivity extends AppCompatBase implements
     private void setSlideAnimation() {
         // Make the next activity slide in
         overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
-    }
-
-    private void setToolbar() {
-        try {
-            Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-            setSupportActionBar(toolbar);
-            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        } catch (IllegalStateException e) {
-            // It is handled correctly but there is something wrong with tests.
-        }
     }
 
 }
