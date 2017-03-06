@@ -13,8 +13,8 @@
         style="@style/FirebaseUI.Text.Heading"/>
 
     <TextView
-        android:id="@+id/welcome_back_idp_prompt"
         style="@style/FirebaseUI.Text.BodyText"
+        android:id="@+id/welcome_back_idp_prompt"
         android:layout_marginTop="48dp"
         android:paddingLeft="32dp"
         android:paddingRight="32dp"

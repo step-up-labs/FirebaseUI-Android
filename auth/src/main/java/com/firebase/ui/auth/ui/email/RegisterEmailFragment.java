@@ -166,6 +166,7 @@ public class RegisterEmailFragment extends FragmentBase implements
         }
 
         return v;
+
     }
 
     private void safeRequestFocus(final View v) {
