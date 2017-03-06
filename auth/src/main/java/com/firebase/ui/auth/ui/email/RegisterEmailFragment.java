@@ -1,5 +1,6 @@
 package com.firebase.ui.auth.ui.email;
 
+import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.ColorInt;
@@ -9,13 +10,18 @@ import android.support.annotation.RestrictTo;
 import android.support.customtabs.CustomTabsIntent;
 import android.support.design.widget.TextInputLayout;
 import android.support.v4.content.ContextCompat;
+import android.text.Editable;
 import android.text.SpannableStringBuilder;
 import android.text.TextUtils;
+import android.text.TextWatcher;
 import android.text.style.ForegroundColorSpan;
 import android.util.TypedValue;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.EditorInfo;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -112,11 +118,31 @@ public class RegisterEmailFragment extends FragmentBase implements
         mEmailEditText.setOnFocusChangeListener(this);
         mNameEditText.setOnFocusChangeListener(this);
         mPasswordEditText.setOnFocusChangeListener(this);
-        v.findViewById(R.id.button_create).setOnClickListener(this);
+        // Handles finish button color change
+        mNameEditText.addTextChangedListener(textListener);
+        mEmailEditText.addTextChangedListener(textListener);
+        mPasswordEditText.addTextChangedListener(textListener);
+
+        TextView buttonCreate = (TextView) v.findViewById(R.id.button_create);
+        buttonCreate.setOnClickListener(this);
+        buttonCreate.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.sign_up_disabled));
 
         if (savedInstanceState != null) {
             return v;
         }
+
+        // If we press enter on soft-keyboard it simulates finish button click
+        mPasswordEditText.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            @Override
+            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+                if (actionId == EditorInfo.IME_ACTION_DONE && getView() != null) {
+                    onClick(getView().findViewById(R.id.button_create));
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+        });
 
         // If email is passed in, fill in the field and move down to the name field.
         String email = mUser.getEmail();
@@ -148,6 +174,11 @@ public class RegisterEmailFragment extends FragmentBase implements
             @Override
             public void run() {
                 v.requestFocus();
+                // Sometimes it doesn't receive focus.
+                if (getActivity().getCurrentFocus() != null) {
+                    InputMethodManager inputMethodManager = (InputMethodManager) getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
+                    inputMethodManager.showSoftInput(getActivity().getCurrentFocus(), 0);
+                }
             }
         });
     }
@@ -235,6 +266,17 @@ public class RegisterEmailFragment extends FragmentBase implements
         }
     }
 
+    private void checkAllFieldsValid() {
+        if (getView() != null) {
+            TextView buttonSignUp = (TextView) getView().findViewById(R.id.button_create);
+            if (mEmailFieldValidator.isValid(mEmailEditText.getText().toString()) && mPasswordFieldValidator.isValid(mPasswordEditText.getText().toString()) && mNameValidator.isValid(mNameEditText.getText().toString())) {
+                buttonSignUp.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.authui_colorAccent));
+            } else if (buttonSignUp != null) {
+                buttonSignUp.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.sign_up_disabled));
+            }
+        }
+    }
+
     private void registerUser(final String email, final String name, final String password) {
         mHelper.getFirebaseAuth()
                 .createUserWithEmailAndPassword(email, password)
@@ -294,4 +336,21 @@ public class RegisterEmailFragment extends FragmentBase implements
                     }
                 });
     }
+
+    TextWatcher textListener = new TextWatcher() {
+        @Override
+        public void afterTextChanged(Editable s) {
+        }
+
+        @Override
+        public void beforeTextChanged(CharSequence s, int start,
+                                      int count, int after) {
+        }
+
+        @Override
+        public void onTextChanged(CharSequence s, int start,
+                                  int before, int count) {
+            checkAllFieldsValid(); // Change SIGN UP button color if needed.
+        }
+    };
 }

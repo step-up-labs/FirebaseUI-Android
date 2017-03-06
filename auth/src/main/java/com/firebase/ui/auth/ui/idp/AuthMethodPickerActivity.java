@@ -22,6 +22,8 @@ import android.support.annotation.RestrictTo;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.ImageView;
 
 import com.firebase.ui.auth.AuthUI;
@@ -83,7 +85,7 @@ public class AuthMethodPickerActivity extends AppCompatBase
         if (logoId == AuthUI.NO_LOGO) {
             findViewById(R.id.logo_layout).setVisibility(View.GONE);
         } else {
-            ImageView logo = (ImageView) findViewById(R.id.logo);
+            ImageView logo = (ImageView) findViewById(R.id.logo_layout); // We can't wrap this view into linear layout so we have to change its id to avoid conflicts in tests.
             logo.setImageResource(logoId);
         }
     }

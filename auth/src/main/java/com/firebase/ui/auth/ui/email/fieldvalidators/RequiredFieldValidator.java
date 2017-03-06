@@ -25,7 +25,7 @@ public class RequiredFieldValidator extends BaseValidator {
     }
 
     @Override
-    protected boolean isValid(CharSequence charSequence) {
+    public boolean isValid(CharSequence charSequence) {
         return charSequence != null && charSequence.length() > 0;
     }
 }

@@ -37,20 +37,24 @@
         <activity
             android:name=".ui.email.RegisterEmailActivity"
             android:label="@string/sign_in_default"
+            android:windowSoftInputMode="adjustResize|stateAlwaysVisible"
             android:exported="false"/>
 
         <activity
             android:name=".ui.accountlink.WelcomeBackIdpPrompt"
             android:label="@string/title_welcome_back_idp_prompt"
+            android:windowSoftInputMode="adjustResize"
             android:exported="false"/>
 
         <activity
             android:name=".ui.accountlink.WelcomeBackPasswordPrompt"
             android:label="@string/title_welcome_back_password_prompt"
+            android:windowSoftInputMode="adjustResize"
             android:exported="false"/>
 
         <activity
             android:name=".ui.idp.AuthMethodPickerActivity"
+            android:theme="@style/FirebaseUI.NoActionBar"
             android:label="@string/default_toolbar_title"
             android:exported="false"/>
 

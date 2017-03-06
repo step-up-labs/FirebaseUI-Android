@@ -34,9 +34,11 @@
         <!-- Auth UI demo -->
         <activity
             android:name=".auth.AuthUiActivity"
+            android:theme="@style/AppTheme.NoActionbar"
             android:label="@string/name_auth_ui"/>
         <activity
             android:name=".auth.SignedInActivity"
+            android:theme="@style/AppTheme.NoActionbar"
             android:label="@string/name_auth_ui"/>
 
         <!-- Storage UI demo-->

@@ -16,6 +16,7 @@ package com.firebase.ui.auth.ui.email.fieldvalidators;
 
 import android.support.design.widget.TextInputLayout;
 import android.util.Patterns;
+import android.widget.TextView;
 
 import com.firebase.ui.auth.R;
 
@@ -28,7 +29,7 @@ public class EmailFieldValidator extends BaseValidator {
     }
 
     @Override
-    protected boolean isValid(CharSequence charSequence) {
+    public boolean isValid(CharSequence charSequence) {
         return Patterns.EMAIL_ADDRESS.matcher(charSequence).matches();
     }
 }

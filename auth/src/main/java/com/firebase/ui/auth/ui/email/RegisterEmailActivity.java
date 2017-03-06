@@ -58,7 +58,7 @@ public class RegisterEmailActivity extends AppCompatBase implements
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register_email);
-
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         if (savedInstanceState != null) {
             return;
         }

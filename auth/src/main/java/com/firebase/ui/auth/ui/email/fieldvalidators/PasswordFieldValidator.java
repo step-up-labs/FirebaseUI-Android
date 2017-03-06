@@ -29,7 +29,7 @@ public class PasswordFieldValidator extends BaseValidator {
     }
 
     @Override
-    protected boolean isValid(CharSequence charSequence) {
+    public boolean isValid(CharSequence charSequence) {
         return charSequence.length() >= mMinLength;
     }
 }
