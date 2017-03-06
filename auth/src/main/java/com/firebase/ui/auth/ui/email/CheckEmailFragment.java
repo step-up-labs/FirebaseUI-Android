@@ -253,7 +253,7 @@ public class CheckEmailFragment extends FragmentBase implements View.OnClickList
 
     private void checkEmailValid() {
         if (getView() != null && mEmailFieldValidator != null) {
-            if (!mEmailFieldValidator.isValid()) {
+            if (!mEmailFieldValidator.isValid(mEmailEditText.getText().toString())) {
                 getView().findViewById(R.id.button_next).setBackgroundColor(ContextCompat.getColor(getContext(), R.color.sign_up_disabled));
             } else {
                 getView().findViewById(R.id.button_next).setBackgroundColor(ContextCompat.getColor(getContext(), R.color.authui_colorAccent));

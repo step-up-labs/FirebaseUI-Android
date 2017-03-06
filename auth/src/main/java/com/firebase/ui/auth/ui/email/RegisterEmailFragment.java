@@ -277,7 +277,7 @@ public class RegisterEmailFragment extends FragmentBase implements
     private void checkAllFieldsValid() {
         if (getView() != null) {
             TextView buttonSignUp = (TextView) getView().findViewById(R.id.button_create);
-            if (mEmailFieldValidator.isValid() && mPasswordFieldValidator.isValid() && mNameValidator.isValid()) {
+            if (mEmailFieldValidator.isValid(mEmailEditText.getText().toString()) && mPasswordFieldValidator.isValid(mPasswordEditText.getText().toString()) && mNameValidator.isValid(mNameEditText.getText().toString())) {
                 buttonSignUp.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.authui_colorAccent));
             } else if (buttonSignUp != null) {
                 buttonSignUp.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.sign_up_disabled));

@@ -22,8 +22,6 @@ import com.firebase.ui.auth.R;
 
 public class EmailFieldValidator extends BaseValidator {
 
-    private Boolean mIsValid = false;
-
     public EmailFieldValidator(TextInputLayout errorContainer) {
         super(errorContainer);
         mErrorMessage = mErrorContainer.getResources().getString(R.string.invalid_email_address);
@@ -31,12 +29,8 @@ public class EmailFieldValidator extends BaseValidator {
     }
 
     @Override
-    protected boolean isValid(CharSequence charSequence) {
-        mIsValid = Patterns.EMAIL_ADDRESS.matcher(charSequence).matches();
-        return mIsValid;
+    public boolean isValid(CharSequence charSequence) {
+        return Patterns.EMAIL_ADDRESS.matcher(charSequence).matches();
     }
 
-    public boolean isValid() {
-        return mIsValid;
-    }
 }
