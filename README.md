@@ -128,6 +128,15 @@ To deploy FirebaseUI to Bintray
   1. Go to the Bintray dashboard and click 'Publish'.
     1. In Bintray click the 'Maven Central' tab and publish the release.
 
+### Step Up Labs deployment
+
+  1. Edit version in constants.gradle
+  2. Run `./gradlew :library:prepareArtifacts :library:publishAllToMavenLocal`
+  3. Test it via mavenLocal() repo
+  4. Create version in [BinTray](https://bintray.com/stepuplabs/firebaseui-android/firebase-ui-auth)
+  5. Upload files from .m2 via the UI to the version
+  6. Click Publish
+
 ### Tag a release on GitHub
 
 * Ensure that all your changes are on master and that your local build is on master
