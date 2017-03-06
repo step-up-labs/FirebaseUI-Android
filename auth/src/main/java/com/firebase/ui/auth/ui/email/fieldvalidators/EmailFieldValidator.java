@@ -32,5 +32,4 @@ public class EmailFieldValidator extends BaseValidator {
     public boolean isValid(CharSequence charSequence) {
         return Patterns.EMAIL_ADDRESS.matcher(charSequence).matches();
     }
-
 }

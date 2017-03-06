@@ -92,16 +92,6 @@ public class RegisterEmailFragment extends FragmentBase implements
         }
     }
 
-    @Override
-    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-        if (!mPasswordInput.isHintAnimationEnabled()) {
-            mPasswordInput.setHintAnimationEnabled(true);
-            ((TextInputLayout) getView().findViewById(R.id.name_layout)).setHintAnimationEnabled(true);
-            mEmailInput.setHintAnimationEnabled(true);
-        }
-    }
-
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater,

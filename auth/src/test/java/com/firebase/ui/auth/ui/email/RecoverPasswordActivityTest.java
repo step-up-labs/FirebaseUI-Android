@@ -16,7 +16,6 @@ package com.firebase.ui.auth.ui.email;
 
 import android.content.Intent;
 import android.widget.Button;
-import android.widget.TextView;
 
 import com.firebase.ui.auth.BuildConfig;
 import com.firebase.ui.auth.R;
@@ -61,7 +60,7 @@ public class RecoverPasswordActivityTest {
     @Config(shadows = {BaseHelperShadow.class, ActivityHelperShadow.class})
     public void testNextButton_sendsEmail() {
         RecoverPasswordActivity recoverPasswordActivity = createActivity();
-        TextView nextButton = (TextView) recoverPasswordActivity.findViewById(R.id.button_done);
+        Button nextButton = (Button) recoverPasswordActivity.findViewById(R.id.button_done);
         when(ActivityHelperShadow.sFirebaseAuth.sendPasswordResetEmail(TestConstants.EMAIL))
                 .thenReturn(new AutoCompleteTask<Void>(null, true, null));
         nextButton.performClick();

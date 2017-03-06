@@ -97,7 +97,7 @@
 
     </ScrollView>
 
-    <TextView
+    <Button
         android:id="@+id/button_create"
         style="@style/FirebaseUI.FullWidthButtonSettleUp"
         android:text="@string/sign_up" />

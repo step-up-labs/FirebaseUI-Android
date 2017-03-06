@@ -18,7 +18,6 @@ import android.content.Intent;
 import android.support.design.widget.TextInputLayout;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 
 import com.firebase.ui.auth.BuildConfig;
 import com.firebase.ui.auth.IdpResponse;
@@ -78,7 +77,7 @@ public class WelcomeBackPasswordPromptTest {
     @Test
     public void testSignInButton_validatesFields() {
         WelcomeBackPasswordPrompt welcomeBack = createActivity();
-        TextView signIn = (TextView) welcomeBack.findViewById(R.id.button_done);
+        Button signIn = (Button) welcomeBack.findViewById(R.id.button_done);
         signIn.performClick();
         TextInputLayout passwordLayout =
                 (TextInputLayout) welcomeBack.findViewById(R.id.password_layout);
@@ -114,7 +113,7 @@ public class WelcomeBackPasswordPromptTest {
         when(mockFirebaseUser.getEmail()).thenReturn(TestConstants.EMAIL);
         when(mockFirebaseUser.getPhotoUrl()).thenReturn(TestConstants.PHOTO_URI);
 
-        TextView signIn = (TextView) welcomeBackActivity.findViewById(R.id.button_done);
+        Button signIn = (Button) welcomeBackActivity.findViewById(R.id.button_done);
         signIn.performClick();
 
         verify(ActivityHelperShadow.sFirebaseAuth).signInWithEmailAndPassword(

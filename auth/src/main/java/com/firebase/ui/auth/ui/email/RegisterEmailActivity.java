@@ -20,7 +20,6 @@ import android.os.Bundle;
 import android.support.annotation.RestrictTo;
 import android.support.design.widget.TextInputLayout;
 import android.support.v4.app.FragmentTransaction;
-import android.support.v7.widget.Toolbar;
 
 import com.firebase.ui.auth.IdpResponse;
 import com.firebase.ui.auth.R;
@@ -145,5 +144,4 @@ public class RegisterEmailActivity extends AppCompatBase implements
         // Make the next activity slide in
         overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
     }
-
 }

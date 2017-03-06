@@ -147,6 +147,7 @@ public class CheckEmailFragment extends FragmentBase implements View.OnClickList
         if (savedInstanceState != null) {
             return;
         }
+
         // Check for email
         String email = getArguments().getString(ExtraConstants.EXTRA_EMAIL);
         if (!TextUtils.isEmpty(email)) {

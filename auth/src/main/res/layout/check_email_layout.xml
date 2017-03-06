@@ -27,7 +27,7 @@
 
     </android.support.design.widget.TextInputLayout>
 
-    <TextView
+    <Button
         android:id="@+id/button_next"
         style="@style/FirebaseUI.FullWidthButtonSettleUp"
         android:layout_alignParentBottom="true"

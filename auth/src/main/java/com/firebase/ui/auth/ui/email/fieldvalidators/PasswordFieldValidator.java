@@ -32,5 +32,4 @@ public class PasswordFieldValidator extends BaseValidator {
     public boolean isValid(CharSequence charSequence) {
         return charSequence.length() >= mMinLength;
     }
-
 }

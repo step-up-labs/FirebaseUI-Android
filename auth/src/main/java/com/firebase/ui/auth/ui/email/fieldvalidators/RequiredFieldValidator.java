@@ -19,7 +19,6 @@ import android.support.design.widget.TextInputLayout;
 import com.firebase.ui.auth.R;
 
 public class RequiredFieldValidator extends BaseValidator {
-
     public RequiredFieldValidator(TextInputLayout errorContainer) {
         super(errorContainer);
         mErrorMessage = mErrorContainer.getResources().getString(R.string.required_field);
@@ -29,5 +28,4 @@ public class RequiredFieldValidator extends BaseValidator {
     public boolean isValid(CharSequence charSequence) {
         return charSequence != null && charSequence.length() > 0;
     }
-
 }
