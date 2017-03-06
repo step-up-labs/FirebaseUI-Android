@@ -24,7 +24,7 @@
         <item name="android:backgroundDimEnabled">false</item>
     </style>
 
-    <style name="FirebaseUI.Dialog" parent="Base.Theme.AppCompat.Light.Dialog" />
+    <style name="FirebaseUI.Dialog" parent="Base.Theme.AppCompat.Light.Dialog"/>
 
     <style name="FirebaseUI.WrapperStyle">
         <item name="android:layout_height">match_parent</item>
@@ -201,7 +201,7 @@
         <item name="android:textStyle">bold</item>
         <item name="android:paddingLeft">12dp</item>
         <item name="android:paddingRight">32dp</item>
-        <item name="android:layout_marginBottom">24dp</item>
+        <item name="android:layout_marginBottom">@dimen/auth_method_button_marginBottom</item>
         <item name="android:layout_gravity">left</item>
         <item name="android:gravity">left|center_vertical</item>
         <item name="android:typeface">normal</item>
@@ -218,7 +218,7 @@
         <item name="android:drawableLeft">@drawable/ic_googleg_color_24dp</item>
         <item name="android:gravity">center</item>
         <item name="android:background">@drawable/idp_button_background_google</item>
-        <item name="android:textColor">#ffffff</item>
+        <item name="android:textColor">#757575</item>
     </style>
 
     <style name="FirebaseUI.Button.AccountChooser.FacebookButton">
@@ -247,7 +247,7 @@
         <item name="colorControlNormal">@color/whiteColor</item>
     </style>
 
-    <style name="FirebaseUI.CustomButton" parent="FirebaseUI.Text">
+    <style name="FirebaseUI.FullWidthButtonSettleUp" parent="FirebaseUI.Text">
         <item name="android:background">@drawable/ripple_background</item>
         <item name="android:fitsSystemWindows">true</item>
         <item name="android:fontFamily">sans-serif-medium</item>

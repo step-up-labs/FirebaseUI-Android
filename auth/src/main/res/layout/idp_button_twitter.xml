@@ -1,4 +1,5 @@
-<Button xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/twitter_button"
+<Button
+    xmlns:android="http://schemas.android.com/apk/res/android"
     style="@style/FirebaseUI.Button.AccountChooser.TwitterButton"
-    android:text="@string/sign_in_with_twitter" />
+    android:text="@string/idp_name_twitter"
+    android:id="@+id/twitter_button"/>

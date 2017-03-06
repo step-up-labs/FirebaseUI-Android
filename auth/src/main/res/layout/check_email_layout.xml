@@ -29,7 +29,7 @@
 
     <TextView
         android:id="@+id/button_next"
-        style="@style/FirebaseUI.CustomButton"
+        style="@style/FirebaseUI.FullWidthButtonSettleUp"
         android:layout_alignParentBottom="true"
         android:text="@string/next_default" />
 

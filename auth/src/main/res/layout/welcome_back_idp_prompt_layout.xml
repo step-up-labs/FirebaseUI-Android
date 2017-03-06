@@ -7,10 +7,10 @@
     android:paddingRight="0dp">
 
     <TextView
-        style="@style/FirebaseUI.Text.Heading"
         android:paddingLeft="32dp"
         android:paddingRight="32dp"
-        android:text="@string/welcome_back_idp_header" />
+        android:text="@string/welcome_back_idp_header"
+        style="@style/FirebaseUI.Text.Heading"/>
 
     <TextView
         android:id="@+id/welcome_back_idp_prompt"
@@ -22,7 +22,7 @@
 
     <TextView
         android:id="@+id/welcome_back_idp_button"
-        style="@style/FirebaseUI.CustomButton"
+        style="@style/FirebaseUI.FullWidthButtonSettleUp"
         android:layout_alignParentBottom="true"
         android:layout_gravity="bottom"
         android:background="@color/authui_colorAccent"

@@ -125,7 +125,6 @@ public class RegisterEmailFragment extends FragmentBase implements
         mEmailInput = (TextInputLayout) v.findViewById(R.id.email_layout);
         mPasswordInput = (TextInputLayout) v.findViewById(R.id.password_layout);
 
-
         mEmailEditText.setOnFocusChangeListener(this);
         mNameEditText.setOnFocusChangeListener(this);
         mPasswordEditText.setOnFocusChangeListener(this);
@@ -362,5 +361,4 @@ public class RegisterEmailFragment extends FragmentBase implements
             checkAllFieldsFilled(); // Change SIGN UP button color if needed.
         }
     };
-
 }
