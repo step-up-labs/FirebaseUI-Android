@@ -3,7 +3,6 @@ package com.firebase.ui.auth.ui.email;
 import android.app.PendingIntent;
 import android.content.Intent;
 import android.content.IntentSender;
-import android.content.res.Configuration;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -113,7 +112,7 @@ public class CheckEmailFragment extends FragmentBase implements View.OnClickList
         mEmailFieldValidator = new EmailFieldValidator(mEmailLayout);
         mEmailLayout.setOnClickListener(this);
         mEmailEditText.setOnClickListener(this);
-        checkEmailNotEmpty();
+        checkEmailValid();
         mEmailEditText.addTextChangedListener(textListener);
 
         // If we press enter on soft-keyboard it simulates finish button click
@@ -252,9 +251,9 @@ public class CheckEmailFragment extends FragmentBase implements View.OnClickList
         }
     }
 
-    private void checkEmailNotEmpty() {
-        if (getView() != null && mEmailEditText != null) {
-            if (mEmailEditText.getText().toString().isEmpty()) {
+    private void checkEmailValid() {
+        if (getView() != null && mEmailFieldValidator != null) {
+            if (!mEmailFieldValidator.isValid()) {
                 getView().findViewById(R.id.button_next).setBackgroundColor(ContextCompat.getColor(getContext(), R.color.sign_up_disabled));
             } else {
                 getView().findViewById(R.id.button_next).setBackgroundColor(ContextCompat.getColor(getContext(), R.color.authui_colorAccent));
@@ -309,7 +308,7 @@ public class CheckEmailFragment extends FragmentBase implements View.OnClickList
         @Override
         public void onTextChanged(CharSequence s, int start,
                                   int before, int count) {
-            checkEmailNotEmpty(); // Change NEXT button color if needed.
+            checkEmailValid(); // Change NEXT button color if needed.
         }
     };
 }

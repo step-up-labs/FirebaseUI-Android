@@ -20,6 +20,8 @@ import com.firebase.ui.auth.R;
 
 public class PasswordFieldValidator extends BaseValidator {
     private int mMinLength;
+    private Boolean mIsValid = false;
+
 
     public PasswordFieldValidator(TextInputLayout errorContainer, int minLength) {
         super(errorContainer);
@@ -30,6 +32,11 @@ public class PasswordFieldValidator extends BaseValidator {
 
     @Override
     protected boolean isValid(CharSequence charSequence) {
-        return charSequence.length() >= mMinLength;
+        mIsValid = charSequence.length() >= mMinLength;
+        return mIsValid;
+    }
+
+    public boolean isValid() {
+        return mIsValid;
     }
 }

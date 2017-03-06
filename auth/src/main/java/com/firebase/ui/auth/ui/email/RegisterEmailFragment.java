@@ -274,10 +274,10 @@ public class RegisterEmailFragment extends FragmentBase implements
         }
     }
 
-    private void checkAllFieldsFilled() {
+    private void checkAllFieldsValid() {
         if (getView() != null) {
             TextView buttonSignUp = (TextView) getView().findViewById(R.id.button_create);
-            if (buttonSignUp != null && !mEmailEditText.getText().toString().isEmpty() && !mPasswordEditText.getText().toString().isEmpty() && !mNameEditText.getText().toString().isEmpty()) {
+            if (mEmailFieldValidator.isValid() && mPasswordFieldValidator.isValid() && mNameValidator.isValid()) {
                 buttonSignUp.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.authui_colorAccent));
             } else if (buttonSignUp != null) {
                 buttonSignUp.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.sign_up_disabled));
@@ -358,7 +358,7 @@ public class RegisterEmailFragment extends FragmentBase implements
         @Override
         public void onTextChanged(CharSequence s, int start,
                                   int before, int count) {
-            checkAllFieldsFilled(); // Change SIGN UP button color if needed.
+            checkAllFieldsValid(); // Change SIGN UP button color if needed.
         }
     };
 }
