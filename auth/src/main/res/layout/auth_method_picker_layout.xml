@@ -38,9 +38,9 @@
 
         <Button
             android:id="@+id/email_provider"
-            android:visibility="gone"
             style="@style/FirebaseUI.Button.AccountChooser.EmailButton"
             android:text="@string/idp_name_email"
+            android:visibility="gone"
             tools:visibility="visible"/>
 
     </LinearLayout>
