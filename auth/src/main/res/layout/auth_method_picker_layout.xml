@@ -3,7 +3,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
-    android:background="@color/gray_1"
     android:clipChildren="false"
     android:clipToPadding="false"
     android:gravity="center"
