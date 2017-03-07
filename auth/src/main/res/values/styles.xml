@@ -13,7 +13,7 @@
         <item name="android:textColorPrimary">@color/authui_inputTextColor</item>
         <item name="android:buttonStyle">@style/FirebaseUI.Button</item>
         <item name="android:editTextStyle">@style/FirebaseUI.EditText</item>
-        <item name="android:colorBackground">@color/gray_1</item>
+        <item name="android:windowBackground">@color/gray_1</item>
     </style>
 
     <style name="FirebaseUI.Transparent" parent="FirebaseUI">
