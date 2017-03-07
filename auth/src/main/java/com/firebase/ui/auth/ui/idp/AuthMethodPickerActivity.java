@@ -81,6 +81,7 @@ public class AuthMethodPickerActivity extends AppCompatBase
 
         populateIdpList(mActivityHelper.getFlowParams().providerInfo);
 
+        getSupportActionBar().hide(); // Need to hide action bar programmatically - setting via theme doesn't work.
         int logoId = mActivityHelper.getFlowParams().logoId;
         if (logoId == AuthUI.NO_LOGO) {
             findViewById(R.id.logo_layout).setVisibility(View.GONE);

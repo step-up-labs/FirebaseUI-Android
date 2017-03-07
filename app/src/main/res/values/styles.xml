@@ -6,11 +6,6 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
-    <style name="AppTheme.NoActionbar">
-        <item name="windowActionBar">false</item>
-        <item name="windowNoTitle">true</item>
-    </style>
-
     <style name="PurpleTheme" parent="FirebaseUI">
         <item name="colorPrimary">@color/material_deep_purple_500</item>
         <item name="colorPrimaryDark">@color/material_deep_purple_700</item>
