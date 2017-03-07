@@ -54,7 +54,6 @@
 
         <activity
             android:name=".ui.idp.AuthMethodPickerActivity"
-            android:theme="@style/FirebaseUI.NoActionBar"
             android:label="@string/default_toolbar_title"
             android:exported="false"/>
 
