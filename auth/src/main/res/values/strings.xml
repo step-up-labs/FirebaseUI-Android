@@ -58,7 +58,7 @@
     <string name="trouble_signing_in">Trouble signing in?</string>
 
     <!-- Password recovery -->
-    <string name="title_recover_password_activity">Recover password</string>
+    <string name="title_recover_password_activity">Forgotten password</string>
     <string name="title_confirm_recover_password">Check your email</string>
     <string name="password_recovery_body">Get instructions sent to this email that explain how to
         reset your password.</string>

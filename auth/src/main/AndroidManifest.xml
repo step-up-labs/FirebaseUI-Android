@@ -32,6 +32,7 @@
         <activity
             android:name=".ui.email.RecoverPasswordActivity"
             android:label="@string/title_recover_password_activity"
+            android:windowSoftInputMode="adjustResize|stateAlwaysVisible"
             android:exported="false"/>
 
         <activity

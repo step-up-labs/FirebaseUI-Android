@@ -74,6 +74,7 @@ public class WelcomeBackIdpPrompt extends AppCompatBase implements IdpCallback {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.welcome_back_idp_prompt_layout);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         IdpResponse newUserIdpResponse = IdpResponse.fromResultIntent(getIntent());
         mPrevCredential = AuthCredentialHelper.getAuthCredential(newUserIdpResponse);
