@@ -32,6 +32,7 @@
         <activity
             android:name=".ui.email.RecoverPasswordActivity"
             android:label="@string/title_recover_password_activity"
+            android:windowSoftInputMode="adjustResize|stateAlwaysVisible"
             android:exported="false"/>
 
         <activity
@@ -42,7 +43,7 @@
 
         <activity
             android:name=".ui.accountlink.WelcomeBackIdpPrompt"
-            android:label="@string/title_welcome_back_idp_prompt"
+            android:label="@string/sign_in_with_email"
             android:windowSoftInputMode="adjustResize"
             android:exported="false"/>
 

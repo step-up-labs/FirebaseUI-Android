@@ -26,8 +26,10 @@ import android.text.Spannable;
 import android.text.SpannableStringBuilder;
 import android.text.TextUtils;
 import android.text.style.StyleSpan;
+import android.view.KeyEvent;
 import android.view.View;
 import android.view.WindowManager;
+import android.view.inputmethod.EditorInfo;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -77,6 +79,7 @@ public class WelcomeBackPasswordPrompt extends AppCompatBase implements View.OnC
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.welcome_back_password_prompt_layout);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         // Show keyboard
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE);
@@ -87,6 +90,17 @@ public class WelcomeBackPasswordPrompt extends AppCompatBase implements View.OnC
 
         mPasswordLayout = (TextInputLayout) findViewById(R.id.password_layout);
         mPasswordField = (EditText) findViewById(R.id.password);
+        mPasswordField.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            @Override
+            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+                if (actionId == EditorInfo.IME_ACTION_DONE) {
+                    onClick(findViewById(R.id.button_done));
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+        });
 
         // Create welcome back text with email bolded
         String bodyText = getString(R.string.welcome_back_password_prompt_body, mEmail);

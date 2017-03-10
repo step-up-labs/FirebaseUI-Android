@@ -20,8 +20,11 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.RestrictTo;
 import android.support.design.widget.TextInputLayout;
+import android.view.KeyEvent;
 import android.view.View;
+import android.view.inputmethod.EditorInfo;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import com.firebase.ui.auth.R;
 import com.firebase.ui.auth.ui.AppCompatBase;
@@ -53,10 +56,22 @@ public class RecoverPasswordActivity extends AppCompatBase implements View.OnCli
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.forgot_password_layout);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         mEmailFieldValidator =
                 new EmailFieldValidator((TextInputLayout) findViewById(R.id.email_layout));
         mEmailEditText = (EditText) findViewById(R.id.email);
+        mEmailEditText.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            @Override
+            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+                if (actionId == EditorInfo.IME_ACTION_DONE) {
+                    onClick(findViewById(R.id.button_done));
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+        });
 
         String email = getIntent().getStringExtra(ExtraConstants.EXTRA_EMAIL);
         if (email != null) {
