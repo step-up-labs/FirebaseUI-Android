@@ -28,7 +28,7 @@
     <string name="progress_dialog_checking_accounts">Checking for existing accounts…</string>
 
     <!-- Email sign up -->
-    <string name="title_register_email">Sign up with email</string>
+    <string name="title_register_email">Sign up</string>
     <string name="name_hint">First &amp; last name</string>
     <string name="button_text_save">Save</string>
     <string name="progress_dialog_signing_up">Signing up…</string>
@@ -58,7 +58,7 @@
     <string name="trouble_signing_in">Trouble signing in?</string>
 
     <!-- Password recovery -->
-    <string name="title_recover_password_activity">Forgotten password</string>
+    <string name="title_recover_password_activity">Recover password</string>
     <string name="title_confirm_recover_password">Check your email</string>
     <string name="password_recovery_body">Get instructions sent to this email that explain how to
         reset your password.</string>
@@ -74,5 +74,5 @@
     <string name="auth_picker_description">Sign in to allow for backup\nand synchronization\nof your groups.</string>
     <string name="sign_up">Sign up</string>
     <string name="idp_name_email">Email</string>
-    
+
 </resources>

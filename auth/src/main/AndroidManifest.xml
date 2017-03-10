@@ -43,7 +43,7 @@
 
         <activity
             android:name=".ui.accountlink.WelcomeBackIdpPrompt"
-            android:label="@string/title_welcome_back_idp_prompt"
+            android:label="@string/sign_in_with_email"
             android:windowSoftInputMode="adjustResize"
             android:exported="false"/>
 
