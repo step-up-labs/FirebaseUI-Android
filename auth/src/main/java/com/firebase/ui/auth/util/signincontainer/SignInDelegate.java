@@ -215,11 +215,19 @@ public class SignInDelegate extends SmartLockBase<CredentialRequestResult> {
         return mCredential.getPassword();
     }
 
+    private String getNameFromCredential() {
+        if (mCredential == null) {
+            return null;
+        }
+        return mCredential.getName();
+    }
+
     private void handleCredential(Credential credential) {
         mCredential = credential;
         String email = getEmailFromCredential();
         String password = getPasswordFromCredential();
-        if (!TextUtils.isEmpty(email)) {
+        String name = getNameFromCredential();
+        if (!TextUtils.isEmpty(email) && !TextUtils.isEmpty(name)) {
             if (TextUtils.isEmpty(password)) {
                 // log in with id/provider
                 redirectToIdpSignIn(email, getAccountTypeFromCredential());
@@ -227,6 +235,9 @@ public class SignInDelegate extends SmartLockBase<CredentialRequestResult> {
                 // Sign in with the email/password retrieved from SmartLock
                 signInWithEmailAndPassword(email, password);
             }
+        } else {
+            // SmartLock sometimes contains old accounts without name resulting in anonymous users. This fixes it.
+            startAuthMethodChoice();
         }
     }
 
