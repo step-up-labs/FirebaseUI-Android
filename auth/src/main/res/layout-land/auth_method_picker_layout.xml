@@ -6,6 +6,7 @@
     android:clipToPadding="false"
     android:clipChildren="false"
     android:orientation="horizontal"
+    android:background="@color/auth_picker_background"
     android:weightSum="2">
 
     <RelativeLayout
