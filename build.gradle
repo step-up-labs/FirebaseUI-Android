@@ -2,32 +2,25 @@ apply from: 'constants.gradle'
 
 buildscript {
     repositories {
+        google()
         jcenter()
         mavenLocal()
-        maven { url 'https://maven.fabric.io/public' }
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:2.3.1'
-        classpath 'com.google.gms:google-services:3.0.0'
-        classpath 'io.fabric.tools:gradle:1.+'
-        classpath 'com.neenbedankt.gradle.plugins:android-apt:1.8'
+        classpath 'com.android.tools.build:gradle:2.3.3'
+        classpath 'com.google.gms:google-services:3.1.0'
         classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.7.3'
     }
 }
 
 allprojects {
     repositories {
+        google()
         jcenter()
         mavenLocal()
         mavenCentral()
-        maven { url 'https://maven.fabric.io/public' }
     }
-}
-
-// TODO Remove once either Facebook or Robolectric fix the crash: https://github.com/robolectric/robolectric/issues/2579#issuecomment-276526911
-gradle.taskGraph.whenReady { graph ->
-    graph.allTasks.findAll { it.name ==~ /testReleaseUnitTest/ }*.enabled = false
 }
 
 //Skip Javadoc generation for Java 1.8 as it breaks build
@@ -57,7 +50,7 @@ allprojects { project ->
         project.apply plugin: 'com.android.library'
         android {
             compileSdkVersion compileSdk
-            buildToolsVersion "${buildTools}"
+            buildToolsVersion buildTools
         }
 
         // Task to generate sources JAR
