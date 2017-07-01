@@ -23,10 +23,11 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.firebase.ui.auth.R;
+import com.firebase.ui.auth.provider.ProviderUtils;
 import com.firebase.ui.auth.ui.ExtraConstants;
 import com.firebase.ui.auth.ui.FlowParameters;
 import com.firebase.ui.auth.ui.FragmentBase;
-import com.firebase.ui.auth.ui.TaskFailureLogger;
+import com.firebase.ui.auth.ui.ImeHelper;
 import com.firebase.ui.auth.ui.User;
 import com.firebase.ui.auth.ui.email.fieldvalidators.EmailFieldValidator;
 import com.firebase.ui.auth.util.GoogleApiHelper;
@@ -40,9 +41,6 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.EmailAuthProvider;
-import com.google.firebase.auth.ProviderQueryResult;
-
-import java.util.List;
 
 /**
  * Fragment that shows a form with an email field and checks for existing accounts with that
@@ -51,7 +49,10 @@ import java.util.List;
  * Host Activities should implement {@link CheckEmailListener}.
  */
 @RestrictTo(RestrictTo.Scope.LIBRARY_GROUP)
-public class CheckEmailFragment extends FragmentBase implements View.OnClickListener {
+public class CheckEmailFragment extends FragmentBase implements
+        View.OnClickListener,
+        ImeHelper.DonePressedListener {
+
     /**
      * Interface to be implemented by Activities hosting this Fragment.
      */
@@ -68,7 +69,7 @@ public class CheckEmailFragment extends FragmentBase implements View.OnClickList
         void onExistingIdpUser(User user);
 
         /**
-         * Email entered does not beling to an existing user.
+         * Email entered does not belong to an existing user.
          */
         void onNewUser(User user);
 
@@ -88,7 +89,7 @@ public class CheckEmailFragment extends FragmentBase implements View.OnClickList
 
     private Credential mLastCredential;
 
-    public static CheckEmailFragment getInstance(@NonNull FlowParameters flowParameters,
+    public static CheckEmailFragment newInstance(@NonNull FlowParameters flowParameters,
                                                  @Nullable String email) {
         CheckEmailFragment fragment = new CheckEmailFragment();
         Bundle args = new Bundle();
@@ -128,6 +129,8 @@ public class CheckEmailFragment extends FragmentBase implements View.OnClickList
             }
         });
 
+        ImeHelper.setImeOnDoneListener(mEmailEditText, this);
+
         // "Next" button
         v.findViewById(R.id.button_next).setOnClickListener(this);
 
@@ -154,7 +157,7 @@ public class CheckEmailFragment extends FragmentBase implements View.OnClickList
             // Use email passed in
             mEmailEditText.setText(email);
             validateAndProceed();
-        } else if (mHelper.getFlowParams().smartLockEnabled) {
+        } else if (mHelper.getFlowParams().enableHints) {
             // Try SmartLock email autocomplete hint
             showEmailAutoCompleteHint();
         }
@@ -189,59 +192,51 @@ public class CheckEmailFragment extends FragmentBase implements View.OnClickList
         }
     }
 
-    public void validateAndProceed() {
+    private void validateAndProceed() {
         String email = mEmailEditText.getText().toString();
         if (mEmailFieldValidator.validate(email)) {
             checkAccountExists(email);
         }
     }
 
-    public void checkAccountExists(@NonNull final String email) {
+    private void checkAccountExists(@NonNull final String email) {
         mHelper.showLoadingDialog(R.string.progress_dialog_checking_accounts);
 
-        if (!TextUtils.isEmpty(email)) {
-            mHelper.getFirebaseAuth()
-                    .fetchProvidersForEmail(email)
-                    .addOnFailureListener(
-                            new TaskFailureLogger(TAG, "Error fetching providers for email"))
-                    .addOnCompleteListener(
-                            getActivity(),
-                            new OnCompleteListener<ProviderQueryResult>() {
-                                @Override
-                                public void onComplete(@NonNull Task<ProviderQueryResult> task) {
-                                    mHelper.dismissDialog();
-                                }
-                            })
-                    .addOnSuccessListener(
-                            getActivity(),
-                            new OnSuccessListener<ProviderQueryResult>() {
-                                @Override
-                                public void onSuccess(ProviderQueryResult result) {
-                                    List<String> providers = result.getProviders();
-                                    if (providers == null || providers.isEmpty()) {
-                                        // Get name from SmartLock, if possible
-                                        String name = null;
-                                        Uri photoUri = null;
-                                        if (mLastCredential != null && mLastCredential.getId().equals(email)) {
-                                            name = mLastCredential.getName();
-                                            photoUri = mLastCredential.getProfilePictureUri();
-                                        }
-
-                                        mListener.onNewUser(new User.Builder(email)
-                                                                    .setName(name)
-                                                                    .setPhotoUri(photoUri)
-                                                                    .build());
-                                    } else if (EmailAuthProvider.PROVIDER_ID.equalsIgnoreCase(providers.get(0))) {
-                                        mListener.onExistingEmailUser(new User.Builder(email).build());
-                                    } else {
-                                        mListener.onExistingIdpUser(
-                                                new User.Builder(email)
-                                                        .setProvider(providers.get(0))
-                                                        .build());
-                                    }
-                                }
-                            });
+        // Get name from SmartLock, if possible
+        String name = null;
+        Uri photoUri = null;
+        if (mLastCredential != null && mLastCredential.getId().equals(email)) {
+            name = mLastCredential.getName();
+            photoUri = mLastCredential.getProfilePictureUri();
         }
+
+        final String finalName = name;
+        final Uri finalPhotoUri = photoUri;
+        ProviderUtils.fetchTopProvider(mHelper.getFirebaseAuth(), email)
+                .addOnSuccessListener(getActivity(), new OnSuccessListener<String>() {
+                    @Override
+                    public void onSuccess(String provider) {
+                        if (provider == null) {
+                            mListener.onNewUser(new User.Builder(email)
+                                                        .setName(finalName)
+                                                        .setPhotoUri(finalPhotoUri)
+                                                        .build());
+                        } else if (EmailAuthProvider.PROVIDER_ID.equalsIgnoreCase(provider)) {
+                            mListener.onExistingEmailUser(new User.Builder(email).build());
+                        } else {
+                            mListener.onExistingIdpUser(
+                                    new User.Builder(email).setProvider(provider).build());
+                        }
+                    }
+                })
+                .addOnCompleteListener(
+                        getActivity(),
+                        new OnCompleteListener<String>() {
+                            @Override
+                            public void onComplete(@NonNull Task<String> task) {
+                                mHelper.dismissDialog();
+                            }
+                        });
     }
 
     private void showEmailAutoCompleteHint() {
@@ -312,4 +307,8 @@ public class CheckEmailFragment extends FragmentBase implements View.OnClickList
             checkEmailValid(); // Change NEXT button color if needed.
         }
     };
+    @Override
+    public void onDonePressed() {
+        validateAndProceed();
+    }
 }
