@@ -20,7 +20,6 @@ import android.support.annotation.Nullable;
 import android.support.annotation.RestrictTo;
 import android.util.Log;
 
-import com.firebase.ui.auth.AuthUI;
 import com.firebase.ui.auth.ErrorCodes;
 import com.firebase.ui.auth.IdpResponse;
 import com.firebase.ui.auth.ResultCodes;
@@ -42,6 +41,7 @@ import com.google.firebase.auth.FirebaseUser;
 @RestrictTo(RestrictTo.Scope.LIBRARY_GROUP)
 public class CredentialSignInHandler implements OnCompleteListener<AuthResult> {
     private static final String TAG = "CredentialSignInHandler";
+    public static String sLastSignedInEmail = null;
 
     private Activity mActivity;
     private BaseHelper mHelper;
@@ -60,6 +60,7 @@ public class CredentialSignInHandler implements OnCompleteListener<AuthResult> {
         mHelper = helper;
         mSmartLock = smartLock;
         mResponse = response;
+        sLastSignedInEmail = response.getEmail(); // Sometimes when we use account which was already used in legacy app, email is null. This workaround helps.
         mAccountLinkRequestCode = accountLinkRequestCode;
     }
 
