@@ -81,7 +81,6 @@
     <string name="sign_up">Sign up</string>
     <string name="idp_name_email">Email</string>
     <string name="sign_in_privacy_policy">By signing in you agree with\n<u>Privacy Policy</u></string>
-    <string name="privacy_policy_link" translatable="false">https://settleup.io/privacy_policy.html</string>
 
     <!-- accessibility -->
     <string name="accessibility_logo" translation_description="Content description for app logo">App logo</string>
