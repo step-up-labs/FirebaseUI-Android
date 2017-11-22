@@ -52,7 +52,7 @@
         android:layout_height="wrap_content"
         android:layout_weight="6"
         android:paddingBottom="32dp"
-        android:textColor="@color/gray_3"
+        android:textColor="@color/gray_4"
         android:gravity="center"
         android:layout_gravity="center_horizontal"
         android:text="@string/sign_in_privacy_policy" />
