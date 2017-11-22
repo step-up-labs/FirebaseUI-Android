@@ -5,6 +5,9 @@
     <color name="authui_colorAccent">#f2774a</color>
     <color name="authui_inputTextColor">#FFFFFF</color>
     <color name="authui_inputTextColorDark">#000000</color>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#2F3E9E</color>
+    <color name="colorAccent">#f2774a</color>
 
     <color name="errorColor">#DD2C00</color>
     <color name="linkColor">#4285F4</color>
@@ -19,5 +22,4 @@
     <color name="white">#ffffff</color>
     <color name="auth_picker_background">#EEEEEE</color>
     <color name="sign_up_disabled">#cccccc</color>
-
 </resources>

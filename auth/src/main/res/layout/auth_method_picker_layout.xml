@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
@@ -7,13 +8,13 @@
     android:clipToPadding="false"
     android:gravity="center"
     android:orientation="vertical"
-    android:weightSum="4"
+    android:weightSum="50"
     android:background="@color/auth_picker_background"
     tools:context=".ui.idp.AuthMethodPickerActivity">
 
     <ImageView
         android:id="@+id/logo_layout"
-        android:layout_weight="1.0"
+        android:layout_weight="10"
         android:paddingTop="32dp"
         android:paddingBottom="32dp"
         style="@style/FirebaseUI.AuthMethodPicker.Logo"
@@ -25,7 +26,7 @@
         android:layout_marginLeft="42dp"
         android:layout_marginRight="42dp"
         android:paddingBottom="16dp"
-        android:layout_weight="1"
+        android:layout_weight="10"
         android:text="@string/auth_picker_description" />
 
     <LinearLayout
@@ -34,7 +35,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:padding="0dp"
-        android:layout_weight="2">
+        android:layout_weight="14">
 
         <Button
             android:id="@+id/email_provider"
@@ -44,5 +45,16 @@
             tools:visibility="visible"/>
 
     </LinearLayout>
+
+    <TextView
+        android:id="@+id/privacy_policy"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="6"
+        android:paddingBottom="32dp"
+        android:textColor="@color/gray_3"
+        android:gravity="center"
+        android:layout_gravity="center_horizontal"
+        android:text="@string/sign_in_privacy_policy" />
 
 </LinearLayout>

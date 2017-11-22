@@ -1,5 +1,6 @@
 <Button
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/google_button"
     style="@style/FirebaseUI.Button.AccountChooser.GoogleButton"
-    android:text="@string/idp_name_google"
-    android:id="@+id/google_button"/>
+    android:text="@string/idp_name_google"/>

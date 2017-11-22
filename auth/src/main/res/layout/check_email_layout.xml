@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     style="@style/FirebaseUI.WrapperStyle"
@@ -8,7 +9,7 @@
 
     <android.support.design.widget.TextInputLayout
         android:id="@+id/email_layout"
-        style="@style/FirebaseUI.Text.TextInputLayout"
+        style="@style/FirebaseUI.TextInputLayout.EmailField"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingLeft="32dp"
@@ -16,13 +17,13 @@
         android:paddingTop="16dp"
         android:transitionGroup="true"
         android:transitionName="email_field"
-        app:errorTextAppearance="@style/FirebaseUI.Text.ErrorText"
+        app:errorTextAppearance="@style/FirebaseUI.Text.Error"
         app:hintTextAppearance="@style/FirebaseUI.Text.HintText"
         tools:ignore="UnusedAttribute">
 
         <android.support.design.widget.TextInputEditText
             android:id="@+id/email"
-            style="@style/FirebaseUI.EditText.EmailField"
+            style="@style/FirebaseUI.TextInputEditText.EmailField"
             android:textCursorDrawable="@drawable/edit_text_cursor_settleup" />
 
     </android.support.design.widget.TextInputLayout>
