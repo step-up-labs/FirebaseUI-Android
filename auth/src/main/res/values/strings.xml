@@ -76,11 +76,12 @@
     <string name="progress_dialog_sending" translation_description="Progress dialog while password recovery email is being sent">Sending…</string>
     <string name="error_email_does_not_exist" translation_description="Inline error when user attempt signin with invalid account">That email address doesn\'t match an existing account</string>
 
-
     <!-- Custom text -->
     <string name="auth_picker_description">Sign in to allow for backup\nand synchronization\nof your groups.</string>
     <string name="sign_up">Sign up</string>
     <string name="idp_name_email">Email</string>
+    <string name="sign_in_privacy_policy">By signing in you agree with\n<u>Privacy Policy</u></string>
+    <string name="privacy_policy_link" translatable="false">https://settleup.io/privacy_policy.html</string>
 
     <!-- accessibility -->
     <string name="accessibility_logo" translation_description="Content description for app logo">App logo</string>

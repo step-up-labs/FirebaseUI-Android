@@ -16,6 +16,7 @@ package com.firebase.ui.auth.ui.idp;
 
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.annotation.RestrictTo;
@@ -77,7 +78,7 @@ public class AuthMethodPickerActivity extends AppCompatBase implements IdpCallba
         super.onCreate(savedInstanceState);
         setContentView(R.layout.auth_method_picker_layout);
         mSaveSmartLock = mActivityHelper.getSaveSmartLockInstance();
-
+        setupPrivacyPolicy();
         populateIdpList(mActivityHelper.getFlowParams().providerInfo);
 
         getSupportActionBar().hide(); // Need to hide action bar programmatically - setting via theme doesn't work.
@@ -135,6 +136,17 @@ public class AuthMethodPickerActivity extends AppCompatBase implements IdpCallba
             }
             btnHolder.addView(loginButton);
         }
+    }
+
+    private void setupPrivacyPolicy() {
+        View privacyPolicy = findViewById(R.id.privacy_policy);
+        privacyPolicy.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(getString(R.string.privacy_policy_link)));
+                startActivity(browserIntent);
+            }
+        });
     }
 
     @Override
