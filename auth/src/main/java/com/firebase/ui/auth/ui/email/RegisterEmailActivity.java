@@ -131,8 +131,6 @@ public class RegisterEmailActivity extends AppCompatBase implements
             FragmentTransaction ft = getSupportFragmentManager().beginTransaction()
                     .replace(R.id.fragment_register_email, fragment, RegisterEmailFragment.TAG);
 
-            if (emailLayout != null) ft.addSharedElement(emailLayout, "email_field");
-
             ft.disallowAddToBackStack().commit();
         } else {
             emailLayout.setError(getString(R.string.error_email_does_not_exist));
