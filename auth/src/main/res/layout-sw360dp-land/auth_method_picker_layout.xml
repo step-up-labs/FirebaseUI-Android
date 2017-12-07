@@ -10,35 +10,26 @@
     android:background="@color/auth_picker_background"
     android:weightSum="2">
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="0dp"
         android:layout_height="match_parent"
-        android:gravity="center"
-        android:layout_weight="1.0"
-        android:orientation="vertical">
+        android:layout_weight="1.0">
 
         <ImageView
             android:id="@+id/logo_layout"
             style="@style/FirebaseUI.AuthMethodPicker.Logo"
-            android:visibility="gone"
+            android:layout_width="wrap_content"
+            android:paddingBottom="84dp"
+            android:layout_centerInParent="true"
             android:contentDescription="@string/accessibility_logo" />
 
         <android.support.v7.widget.AppCompatTextView
             android:id="@+id/description"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center"
+            style="@style/FirebaseUI.Text.Description"
+            android:layout_marginTop="-60dp"
+            android:layout_below="@id/logo_layout"
             android:text="@string/auth_picker_description" />
-
-        <android.support.v7.widget.AppCompatTextView
-            android:id="@+id/privacy_policy"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
-            android:textColor="@color/gray_4"
-            android:gravity="center"
-            android:text="@string/sign_in_privacy_policy" />
-    </LinearLayout>
+    </RelativeLayout>
 
     <RelativeLayout
         android:layout_width="0dp"
@@ -68,5 +59,17 @@
                 android:text="@string/idp_name_email" />
 
         </LinearLayout>
+
+        <TextView
+            android:id="@+id/privacy_policy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingBottom="32dp"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/btn_holder"
+            android:textColor="@color/gray_4"
+            android:gravity="center"
+            android:layout_gravity="center_horizontal"
+            android:text="@string/sign_in_privacy_policy" />
     </RelativeLayout>
 </LinearLayout>
