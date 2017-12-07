@@ -1,7 +1,7 @@
 project.ext {
     submodules = ['database', 'auth', 'storage']
     group = 'io.stepuplabs.firebaseui.android'
-    version = '2.0.1.4'
+    version = '2.0.1.5'
     pomdesc = 'Firebase UI Android'
 
     compileSdk = 25
