@@ -44,6 +44,7 @@ public class TwitterProvider extends Callback<TwitterSession> implements IdpProv
     }
 
     public static void initialize(Context context) {
+        /*
         TwitterAuthConfig authConfig = new TwitterAuthConfig(
                 context.getString(R.string.twitter_consumer_key),
                 context.getString(R.string.twitter_consumer_secret));
@@ -51,6 +52,7 @@ public class TwitterProvider extends Callback<TwitterSession> implements IdpProv
                 .twitterAuthConfig(authConfig)
                 .build();
         Twitter.initialize(config);
+        */
     }
 
     public static void signout(Context context) {
